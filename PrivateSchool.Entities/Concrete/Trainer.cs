@@ -7,11 +7,18 @@ namespace PrivateSchool.Entities.Concrete
     public class Trainer
     {
         public int TrainerId { get; set; }
-        [Required, MaxLength(50), MinLength(3)]
+        [Required(ErrorMessage = "Your FirstName is mandatory"), MaxLength(50), MinLength(3)]
         public string FirstName { get; set; }
-        [Required, MaxLength(50), MinLength(3)]
+        [Required(ErrorMessage = "Your LastName is mandatory"), MaxLength(50), MinLength(3)]
         public string LastName { get; set; }
-
+        [Required(ErrorMessage = "We are not slaves,give that man $"),DataType(DataType.Currency),Range(1000,10000)]
+        public int Salary { get; set; }
+        [Required(ErrorMessage = "Your Email is mandatory"), DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Your Photo is mandatory"), DataType(DataType.ImageUrl)]
+        public string PhotoUrl { get; set; }
+        [MaxLength(10), DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
     }
 }

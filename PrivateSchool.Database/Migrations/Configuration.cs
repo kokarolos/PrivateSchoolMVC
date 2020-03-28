@@ -16,34 +16,34 @@
         {
             //------Conrete------
 
-            var c1 = new Course() { Stream = "CB9", Type = Entities.Concrete.Type.C };
-            var c2 = new Course() { Stream = "CB10", Type = Entities.Concrete.Type.CSharp };
-            var c3 = new Course() { Stream = "CB11", Type = Entities.Concrete.Type.Java };
-            var c4 = new Course() { Stream = "CB12", Type = Entities.Concrete.Type.JS };
-            var c5 = new Course() { Stream = "CB13", Type = Entities.Concrete.Type.CSharp };
+            var c1 = new Course() { Stream = "CB9", Type = Entities.Concrete.Type.C ,StartingDate=new DateTime(2020,5,1),EndingDate= new DateTime(2020,11, 1) };
+            var c2 = new Course() { Stream = "CB10", Type = Entities.Concrete.Type.CSharp, StartingDate = new DateTime(2020, 6, 1), EndingDate = new DateTime(2020, 12, 1) };
+            var c3 = new Course() { Stream = "CB11", Type = Entities.Concrete.Type.Java, StartingDate = new DateTime(2020, 7, 1), EndingDate = new DateTime(2021, 11, 3) };
+            var c4 = new Course() { Stream = "CB12", Type = Entities.Concrete.Type.JS, StartingDate = new DateTime(2020, 8, 1), EndingDate = new DateTime(2021, 9, 5) };
+            var c5 = new Course() { Stream = "CB13", Type = Entities.Concrete.Type.CSharp, StartingDate = new DateTime(2020, 9, 1), EndingDate = new DateTime(2021, 12, 12) };
 
-            var s1 = new Student() { FirstName = "Karol", LastName = "Koniewicz", DateOfBirth = new DateTime(1994, 10, 13), TuitionFees = 500 };
-            var s2 = new Student() { FirstName = "Sofia", LastName = "Panta", DateOfBirth = new DateTime(1996, 10, 13), TuitionFees = 1455 };
-            var s3 = new Student() { FirstName = "Tio", LastName = "Pantas", DateOfBirth = new DateTime(1999, 10, 13), TuitionFees = 124321 };
-            var s4 = new Student() { FirstName = "Panos", LastName = "Rizos", DateOfBirth = new DateTime(1992, 10, 13), TuitionFees = 5001 };
-            var s5 = new Student() { FirstName = "Giorgos", LastName = "Poulakos", DateOfBirth = new DateTime(1982, 11, 3), TuitionFees = 5201 };
-            var s6 = new Student() { FirstName = "Thanos", LastName = "Katrakis", DateOfBirth = new DateTime(1991, 12, 30), TuitionFees = 2001 };
-            var s7 = new Student() { FirstName = "Stathis", LastName = "Kanelis", DateOfBirth = new DateTime(1990, 1, 25), TuitionFees = 3001 };
-            var s8 = new Student() { FirstName = "Zachos", LastName = "Kritikos", DateOfBirth = new DateTime(1982, 10, 13), TuitionFees = 100 };
-            var s9 = new Student() { FirstName = "Xeno", LastName = "Xiliomidis", DateOfBirth = new DateTime(1972, 10, 13), TuitionFees = 1001 };
-            var s10 = new Student() { FirstName = "Giorgos", LastName = "Tsakwnas", DateOfBirth = new DateTime(1912, 10, 13), TuitionFees = 2101 };
-            var s11 = new Student() { FirstName = "Nikolay", LastName = "Pavlov", DateOfBirth = new DateTime(1993, 8, 7), TuitionFees = 1311 };
+            var s1 = new Student() { FirstName = "Karol", LastName = "Koniewicz", DateOfBirth = new DateTime(1994, 10, 13), TuitionFees = 500,Email="karolos@gmail.com",PhoneNumber="689102021",PhotoUrl="#"};
+            var s2 = new Student() { FirstName = "Sofia", LastName = "Panta", DateOfBirth = new DateTime(1996, 10, 13), TuitionFees = 1455, Email = "sofia@gmail.com", PhoneNumber = "689102022", PhotoUrl = "#" };
+            var s3 = new Student() { FirstName = "Tio", LastName = "Pantas", DateOfBirth = new DateTime(1999, 10, 13), TuitionFees = 124321, Email = "tio@gmail.com", PhoneNumber = "6891020223", PhotoUrl = "#" };
+            var s4 = new Student() { FirstName = "Panos", LastName = "Rizos", DateOfBirth = new DateTime(1992, 10, 13), TuitionFees = 5001, Email = "panos@gmail.com", PhoneNumber = "689102024", PhotoUrl = "#" };
+            var s5 = new Student() { FirstName = "Giorgos", LastName = "Poulakos", DateOfBirth = new DateTime(1982, 11, 3), TuitionFees = 5201, Email = "ggiorgos@gmail.com", PhoneNumber = "689102025", PhotoUrl = "#" };
+            var s6 = new Student() { FirstName = "Thanos", LastName = "Katrakis", DateOfBirth = new DateTime(1991, 12, 30), TuitionFees = 2001, Email = "thanos@gmail.com", PhoneNumber = "689102026", PhotoUrl = "#" };
+            var s7 = new Student() { FirstName = "Stathis", LastName = "Kanelis", DateOfBirth = new DateTime(1990, 1, 25), TuitionFees = 3001, Email = "stathis@gmail.com", PhoneNumber = "689102027", PhotoUrl = "#" };
+            var s8 = new Student() { FirstName = "Zachos", LastName = "Kritikos", DateOfBirth = new DateTime(1982, 10, 13), TuitionFees = 100, Email = "zachos@gmail.com", PhoneNumber = "689102028", PhotoUrl = "#" };
+            var s9 = new Student() { FirstName = "Xeno", LastName = "Xiliomidis", DateOfBirth = new DateTime(1972, 10, 13), TuitionFees = 1001, Email = "xeno@gmail.com", PhoneNumber = "6891020221", PhotoUrl = "#" };
+            var s10 = new Student() { FirstName = "Giorgos", LastName = "Tsakwnas", DateOfBirth = new DateTime(1912, 10, 13), TuitionFees = 2101, Email = "thisistrap@gmail.com", PhoneNumber = "689102027", PhotoUrl = "#" };
+            var s11 = new Student() { FirstName = "Nikolay", LastName = "Pavlov", DateOfBirth = new DateTime(1993, 8, 7), TuitionFees = 1311, Email = "pablo@gmail.com", PhoneNumber = "689102024", PhotoUrl = "#" };
 
-            var a1 = new Assignment() { Description = "PrivateSchoolAssignment" };
-            var a2 = new Assignment() { Description = "DatabaseAssignment" };
-            var a3 = new Assignment() { Description = "FrontEndAssignment" };
-            var a4 = new Assignment() { Description = "BackEndAssignment" };
+            var a1 = new Assignment() { Description = "PrivateSchoolAssignment" ,SubDate= new DateTime(2020, 3, 3)};
+            var a2 = new Assignment() { Description = "DatabaseAssignment" ,SubDate = new DateTime(2020, 5, 1) };
+            var a3 = new Assignment() { Description = "FrontEndAssignment" ,SubDate = new DateTime(2020, 6, 11) };
+            var a4 = new Assignment() { Description = "BackEndAssignment" ,SubDate = new DateTime(2020, 8, 22) };
 
-            var t1 = new Trainer() { FirstName = "Hector", LastName = "Gkatsos" };
-            var t2 = new Trainer() { FirstName = "Billy", LastName = "Takis" };
-            var t3 = new Trainer() { FirstName = "Makis", LastName = "Vader" };
-            var t4 = new Trainer() { FirstName = "Mitsos", LastName = "Testoglou" };
-            var t5 = new Trainer() { FirstName = "Trakis", LastName = "Pagkakis" };
+            var t1 = new Trainer() { FirstName = "Hector", LastName = "Gkatsos",Email="hector@gmail.com",Salary=9000,PhoneNumber="691010101",PhotoUrl="#"};
+            var t2 = new Trainer() { FirstName = "Billy", LastName = "Takis" ,Email = "billy@gmail.com", Salary = 3000, PhoneNumber = "691010102", PhotoUrl = "#" };
+            var t3 = new Trainer() { FirstName = "Makis", LastName = "Vader" , Email = "makis@gmail.com", Salary = 2000, PhoneNumber = "691010103", PhotoUrl = "#" };
+            var t4 = new Trainer() { FirstName = "Mitsos", LastName = "Testoglou", Email = "mitsos@gmail.com", Salary = 7000, PhoneNumber = "691010104", PhotoUrl = "#" };
+            var t5 = new Trainer() { FirstName = "Trakis", LastName = "Pagkakis", Email = "trakis@gmail.com", Salary = 1000, PhoneNumber = "691010105", PhotoUrl = "#" };
 
             c1.Students = new List<Student>() { s1, s2, s3, s4, s5, s6 };
             c1.Assignments = new List<Assignment>() { a1, a2, a3 };
@@ -66,8 +66,8 @@
             c5.Trainers = new List<Trainer>() { t2, t3, t1 };
 
             context.Assignment.AddOrUpdate(x => x.Description, a1, a2, a3, a4);
-            context.Trainer.AddOrUpdate(x => x.LastName, t1, t2, t3, t4, t5);
-            context.Student.AddOrUpdate(x => x.LastName, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11);
+            context.Trainer.AddOrUpdate(x => x.Email, t1, t2, t3, t4, t5);
+            context.Student.AddOrUpdate(x => x.Email, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11);
             context.Course.AddOrUpdate(x => x.Stream, c1, c2, c3, c4, c5);
             context.SaveChanges();
         }
