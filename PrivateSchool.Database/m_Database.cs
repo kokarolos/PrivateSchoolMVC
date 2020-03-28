@@ -1,6 +1,4 @@
 ﻿using PrivateSchool.Entities.Concrete;
-using PrivateSchool.Entities.Intermediaries;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 

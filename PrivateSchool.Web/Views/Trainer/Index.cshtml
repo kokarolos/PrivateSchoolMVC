@@ -9,31 +9,46 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TrainerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TrainerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TrainerId })
-        </td>
-    </tr>
+@{
+    int count = Model.Count();
+    if (count > 0)
+    {
+        ViewBag.message = count + " Trainers Found";
+    }
+    else if (count == 1)
+    {
+        ViewBag.message = count + " Trainer Found";
+    }
 }
-
+<p><em>@ViewBag.message</em></p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
+            <td>@Html.DisplayNameFor(x => x.FirstName)</td>
+            <td>@Html.DisplayNameFor(x => x.LastName)</td>
+            <td>@Html.DisplayNameFor(x => x.Salary)</td>
+            <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
+            <td>@Html.DisplayNameFor(x => x.Email)</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trainer in Model)
+        {
+        <tr>
+            <td><img src="@trainer.PhotoUrl" /></td>
+            <td>@Html.DisplayFor(x => trainer.FirstName)</td>
+            <td>@Html.DisplayFor(x => trainer.LastName)</td>
+            <td>@Html.DisplayFor(x => trainer.Salary)</td>
+            <td>@Html.DisplayFor(x => trainer.PhoneNumber)</td>
+            <td>@Html.DisplayFor(x => trainer.Email)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = trainer.TrainerId }) |
+                @Html.ActionLink("Details", "Details", new { id = trainer.TrainerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = trainer.TrainerId })
+            </td>
+        </tr>
+        }
+    </tbody>
 </table>

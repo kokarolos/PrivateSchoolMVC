@@ -13,7 +13,7 @@ namespace PrivateSchool.Entities.Concrete
         [Required(ErrorMessage = "The Surname is mandatory"), MaxLength(10), MinLength(2)]
         public string LastName { get; set; }
         [Required(ErrorMessage = "The date value is mandatory"), DataType(DataType.Date)]
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [CustomValidation(typeof(ValidationMethods), "ValidateGreaterOrEqualToZero")]
         public double TuitionFees { get; set; }

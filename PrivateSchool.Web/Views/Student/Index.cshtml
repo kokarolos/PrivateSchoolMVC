@@ -9,43 +9,51 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TuitionFees)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TuitionFees)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StudentId })
-        </td>
-    </tr>
+@{
+    ViewBag.Title = "Index";
 }
 
+@{
+    int count = Model.Count();
+    if (count > 0)
+    {
+        ViewBag.message = count + " Students Found";
+    }
+    else if (count == 1)
+    {
+        ViewBag.message = count + " Student Found";
+    }
+}
+<p><em>@ViewBag.message</em></p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
+            <td>@Html.DisplayNameFor(x => x.FirstName)</td>
+            <td>@Html.DisplayNameFor(x => x.LastName)</td>
+            <td>@Html.DisplayNameFor(x => x.DateOfBirth)</td>
+            <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
+            <td>@Html.DisplayNameFor(x => x.Email)</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+           int age = DateTime.Now.Year - student.DateOfBirth.Year ;
+        <tr>
+            <td><img src="@student.PhotoUrl" /></td>
+            <td>@Html.DisplayFor(x => student.FirstName)</td>
+            <td>@Html.DisplayFor(x => student.LastName)</td>
+            <td>@Html.DisplayFor(x => age)</td>
+            <td>@Html.DisplayFor(x => student.PhoneNumber)</td>
+            <td>@Html.DisplayFor(x => student.Email)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }) |
+                @Html.ActionLink("Details", "Details", new { id = student.StudentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = student.StudentId })
+            </td>
+        </tr>                              
+         }                                     
+    </tbody>
 </table>

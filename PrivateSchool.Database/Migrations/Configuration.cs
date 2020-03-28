@@ -31,8 +31,15 @@
             var s7 = new Student() { FirstName = "Stathis", LastName = "Kanelis", DateOfBirth = new DateTime(1990, 1, 25), TuitionFees = 3001, Email = "stathis@gmail.com", PhoneNumber = "689102027", PhotoUrl = "#" };
             var s8 = new Student() { FirstName = "Zachos", LastName = "Kritikos", DateOfBirth = new DateTime(1982, 10, 13), TuitionFees = 100, Email = "zachos@gmail.com", PhoneNumber = "689102028", PhotoUrl = "#" };
             var s9 = new Student() { FirstName = "Xeno", LastName = "Xiliomidis", DateOfBirth = new DateTime(1972, 10, 13), TuitionFees = 1001, Email = "xeno@gmail.com", PhoneNumber = "6891020221", PhotoUrl = "#" };
-            var s10 = new Student() { FirstName = "Giorgos", LastName = "Tsakwnas", DateOfBirth = new DateTime(1912, 10, 13), TuitionFees = 2101, Email = "thisistrap@gmail.com", PhoneNumber = "689102027", PhotoUrl = "#" };
-            var s11 = new Student() { FirstName = "Nikolay", LastName = "Pavlov", DateOfBirth = new DateTime(1993, 8, 7), TuitionFees = 1311, Email = "pablo@gmail.com", PhoneNumber = "689102024", PhotoUrl = "#" };
+            var s10 = new Student() { FirstName = "Giorgos", LastName = "Tsakwnas", DateOfBirth = new DateTime(1972, 10, 13), TuitionFees = 2101, Email = "thisistrap@gmail.com", PhoneNumber = "689102023", PhotoUrl = "#" };
+            var s11 = new Student() { FirstName = "Eleni", LastName = "Parisi", DateOfBirth = new DateTime(1997, 8, 7), TuitionFees = 5234, Email = "parisi@gmail.com", PhoneNumber = "689102024", PhotoUrl = "#" };
+            var s12 = new Student() { FirstName = "Ioanis", LastName = "Manthos", DateOfBirth = new DateTime(1998, 8, 7), TuitionFees = 234, Email = "manthos@gmail.com", PhoneNumber = "689102224", PhotoUrl = "#" };
+            var s13 = new Student() { FirstName = "Giannis", LastName = "Elefsiniotis", DateOfBirth = new DateTime(2001, 8, 11), TuitionFees = 3456, Email = "elef@gmail.com", PhoneNumber = "689102024", PhotoUrl = "#" };
+            var s14 = new Student() { FirstName = "Giannis", LastName = "Vlaxos", DateOfBirth = new DateTime(1999, 8, 7), TuitionFees = 4353, Email = "vlaxos@gmail.com", PhoneNumber = "689102124", PhotoUrl = "#" };
+            var s15 = new Student() { FirstName = "Paraskeuas", LastName = "Methana", DateOfBirth = new DateTime(1994, 5, 6), TuitionFees = 643, Email = "methana@gmail.com", PhoneNumber = "6891320284", PhotoUrl = "#" };
+            var s16 = new Student() { FirstName = "Kotsos", LastName = "Argiropoulos", DateOfBirth = new DateTime(1995, 2, 4), TuitionFees = 234, Email = "argiro@gmail.com", PhoneNumber = "689142027", PhotoUrl = "#" };
+            var s17 = new Student() { FirstName = "Vlassis", LastName = "Mouxos", DateOfBirth = new DateTime(1997, 1, 2), TuitionFees = 564, Email = "mouxos@gmail.com", PhoneNumber = "689122023", PhotoUrl = "#" };
+            var s18 = new Student() { FirstName = "Ilektra", LastName = "Spiliotaki", DateOfBirth = new DateTime(1991, 9, 17), TuitionFees = 1231, Email = "spiliotaki@gmail.com", PhoneNumber = "6891102026", PhotoUrl = "#" };
 
             var a1 = new Assignment() { Description = "PrivateSchoolAssignment" ,SubDate= new DateTime(2020, 3, 3)};
             var a2 = new Assignment() { Description = "DatabaseAssignment" ,SubDate = new DateTime(2020, 5, 1) };

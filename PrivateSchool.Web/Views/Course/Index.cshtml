@@ -4,36 +4,42 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Stream)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stream)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
-        </td>
-    </tr>
+@{
+    int count = Model.Count();
+    if(count>0)
+    {
+          ViewBag.message = count + " Courses Found";
+    }
+    else if(count==1)
+    {
+         ViewBag.message = count + " Course Found";
+    }
 }
-
+<p><em>@ViewBag.message</em></p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Stream)</td>
+            <td>@Html.DisplayNameFor(x => x.Type)</td>
+            <td>@Html.DisplayNameFor(x => x.StartingDate)</td>
+            <td>@Html.DisplayNameFor(x => x.EndingDate)</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var course in Model)
+       {
+        <tr>
+            <td>@Html.DisplayFor(x => course.Stream)</td>
+            <td>@Html.DisplayFor(x => course.Type)</td>
+            <td>@Html.DisplayFor(x => course.StartingDate)</td>
+            <td>@Html.DisplayFor(x => course.EndingDate)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = course.CourseId }) |
+                @Html.ActionLink("Details", "Details", new { id = course.CourseId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = course.CourseId })
+            </td>
+        </tr>
+       }
+    </tbody>
 </table>

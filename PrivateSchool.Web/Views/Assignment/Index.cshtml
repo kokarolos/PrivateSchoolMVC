@@ -4,30 +4,44 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Assignments</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AssignmentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AssignmentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AssignmentId })
-        </td>
-    </tr>
+@{
+    int count = Model.Count();
+    if (count > 0)
+    {
+        ViewBag.message = count + " Students Found";
+    }
+    else if (count == 1)
+    {
+        ViewBag.message = count + " Student Found";
+    }
 }
+<p><em>@ViewBag.message</em></p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Description)</td>
+            <td>@Html.DisplayNameFor(x => x.SubDate)</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assignment in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => assignment.Description)</td>
+                <td>@Html.DisplayFor(x => assignment.SubDate)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = assignment.AssignmentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = assignment.AssignmentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = assignment.AssignmentId })
+                </td>
+            </tr>
 
+        }
+    </tbody>
 </table>
