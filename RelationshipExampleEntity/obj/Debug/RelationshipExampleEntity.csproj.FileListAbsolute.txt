@@ -1,0 +1,11 @@
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\bin\Debug\RelationshipExampleEntity.exe.config
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\bin\Debug\RelationshipExampleEntity.exe
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\bin\Debug\RelationshipExampleEntity.pdb
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\bin\Debug\EntityFramework.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\bin\Debug\EntityFramework.xml
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\obj\Debug\RelationshipExampleEntity.csprojAssemblyReference.cache
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\obj\Debug\RelationshipExampleEntity.csproj.CopyComplete
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\obj\Debug\RelationshipExampleEntity.exe
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\RelationshipExampleEntity\obj\Debug\RelationshipExampleEntity.pdb
