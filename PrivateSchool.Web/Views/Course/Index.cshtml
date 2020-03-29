@@ -16,6 +16,8 @@
     }
 }
 <p><em>@ViewBag.message</em></p>
+<form method="get" name="sort">
+</form>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -23,6 +25,10 @@
             <td>@Html.DisplayNameFor(x => x.Type)</td>
             <td>@Html.DisplayNameFor(x => x.StartingDate)</td>
             <td>@Html.DisplayNameFor(x => x.EndingDate)</td>
+            <td>@Html.DisplayNameFor(x => x.Students)</td>
+            <td>@Html.DisplayNameFor(x => x.Trainers)</td>
+            <td>@Html.DisplayNameFor(x => x.Assignments)</td>
+
             <td>Action</td>
         </tr>
     </thead>
@@ -34,6 +40,30 @@
             <td>@Html.DisplayFor(x => course.Type)</td>
             <td>@Html.DisplayFor(x => course.StartingDate)</td>
             <td>@Html.DisplayFor(x => course.EndingDate)</td>
+            <td>
+                <ul>
+                    @foreach (var student in course.Students)
+                    {
+                        <li>@Html.DisplayFor(x => student.FirstName)</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    @foreach (var trainer in course.Trainers)
+                    {
+                        <li>@Html.DisplayFor(x => trainer.FirstName)</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    @foreach (var assignment in course.Assignments)
+                    {
+                        <li>@Html.DisplayFor(x => assignment.Description)</li>
+                    }
+                </ul>
+            </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = course.CourseId }) |
                 @Html.ActionLink("Details", "Details", new { id = course.CourseId }) |

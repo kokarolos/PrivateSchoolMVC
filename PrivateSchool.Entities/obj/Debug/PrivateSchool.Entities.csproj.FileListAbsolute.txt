@@ -5,7 +5,7 @@ C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\b
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\bin\Debug\EntityFramework.xml
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\obj\Debug\PrivateSchool.Entities.csprojAssemblyReference.cache
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\obj\Debug\PrivateSchool.Entities.csproj.CopyComplete
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\obj\Debug\PrivateSchool.Entities.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\obj\Debug\PrivateSchool.Entities.pdb
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Entities\obj\Debug\PrivateSchool.Entities.csprojAssemblyReference.cache

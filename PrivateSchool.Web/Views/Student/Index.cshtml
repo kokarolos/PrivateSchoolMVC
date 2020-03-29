@@ -34,6 +34,7 @@
             <td>@Html.DisplayNameFor(x => x.DateOfBirth)</td>
             <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
             <td>@Html.DisplayNameFor(x => x.Email)</td>
+            <td>Courses-Assignments</td>
             <td>Action</td>
         </tr>
     </thead>
@@ -42,12 +43,25 @@
         {
            int age = DateTime.Now.Year - student.DateOfBirth.Year ;
         <tr>
-            <td><img src="@student.PhotoUrl" /></td>
+            <td><img src="@student.PhotoUrl" class="img-fluid" /></td>
             <td>@Html.DisplayFor(x => student.FirstName)</td>
             <td>@Html.DisplayFor(x => student.LastName)</td>
             <td>@Html.DisplayFor(x => age)</td>
             <td>@Html.DisplayFor(x => student.PhoneNumber)</td>
             <td>@Html.DisplayFor(x => student.Email)</td>
+            <td>
+                <ul>
+                    @foreach (var course in student.Courses)
+                     {
+                        <li>@Html.DisplayFor(x => course.Stream)</li>
+                            foreach (var assignment in course.Assignments)
+                            {
+                                 <li>@Html.DisplayFor(x => assignment.Description)</li>
+                            }
+                     }
+                </ul>
+            </td>
+
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }) |
                 @Html.ActionLink("Details", "Details", new { id = student.StudentId }) |
