@@ -12,8 +12,8 @@ namespace PrivateSchool.Services
     public class AssignmentRepository
     {
         private m_Database db = new m_Database();
-        public IEnumerable<Assignment> GetAssignments() => db.Assignment.ToList();
-        public Assignment GetAssignment(int? id) => db.Assignment.Find(id);
+        public IEnumerable<Assignment> GetAssignments() => db.Assignments.ToList();
+        public Assignment GetAssignment(int? id) => db.Assignments.Find(id);
         public void Insert(object entity)
         {
             var assignment = entity as Assignment;

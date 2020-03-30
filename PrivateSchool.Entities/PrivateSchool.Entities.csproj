@@ -59,6 +59,7 @@
     <Compile Include="CustomValidation\ValidationMethods.cs" />
     <Compile Include="Intermediaries\CourseStudents.cs" />
     <Compile Include="Intermediaries\CourseTrainers.cs" />
+    <Compile Include="Intermediaries\StudentAssignments.cs" />
     <Compile Include="Intermediaries\StudentCourseAssignemnts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

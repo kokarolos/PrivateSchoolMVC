@@ -12,8 +12,8 @@ namespace PrivateSchool.Services
     public class CourseRepository :IRepository
     {
         public m_Database db = new m_Database();
-        public IEnumerable<Course> GetCourses() => db.Course.ToList();
-        public Course GetCourse(int? id) => db.Course.Find(id);
+        public IEnumerable<Course> GetCourses() => db.Courses.ToList();
+        public Course GetCourse(int? id) => db.Courses.Find(id);
         public void Insert(object entity)
         {
             var course = entity as Course;

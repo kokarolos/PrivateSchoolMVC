@@ -12,27 +12,24 @@ namespace PrivateSchool.Desktop
             AssignmentRepository ass = new AssignmentRepository();
             TrainerRepository ts = new TrainerRepository();
 
-
             var courses = cs.GetCourses();
             var trainers = ts.GetTrainers();
             var assignments = ass.GetAssignments();
             var students = ss.GetStudents();
-            foreach (var course in courses)
-            {
-                Console.WriteLine(course.Stream);
-            }
-            foreach (var trainer in trainers)
-            {
-                Console.WriteLine(trainer.FirstName);
-            }
             foreach (var student in students)
             {
                 Console.WriteLine(student.FirstName);
+                foreach (var course in student.Courses)
+                {
+                    Console.Write("\tc:{0} ",course.Stream);
+                    foreach (var assignemnt in course.Assignments)
+                    {
+                        Console.Write("\ta:{0} ",assignemnt.Description);
+                    }
+                }
+                Console.WriteLine();
             }
-            foreach (var assignment in assignments)
-            {
-                Console.WriteLine(assignment.Description);
-            }
+
         }
     }
 }

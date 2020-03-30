@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using PrivateSchool.Entities.CustomValidation;
+using PrivateSchool.Entities.Intermediaries;
 
 namespace PrivateSchool.Entities.Concrete
 {
@@ -25,5 +26,7 @@ namespace PrivateSchool.Entities.Concrete
         public string PhoneNumber { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<StudentAssignments> StudentAssignments { get; set; }
+
     }
 }

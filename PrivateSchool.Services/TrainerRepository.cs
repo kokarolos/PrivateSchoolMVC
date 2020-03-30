@@ -10,8 +10,8 @@ namespace PrivateSchool.Services
     public class TrainerRepository
     {
         private m_Database db = new m_Database();
-        public IEnumerable<Trainer> GetTrainers() => db.Trainer.ToList();
-        public Trainer GetTrainer(int? id) => db.Trainer.Find(id);
+        public IEnumerable<Trainer> GetTrainers() => db.Trainers.ToList();
+        public Trainer GetTrainer(int? id) => db.Trainers.Find(id);
         public void Insert(object entity)
         {
             var trainer = entity as Trainer;

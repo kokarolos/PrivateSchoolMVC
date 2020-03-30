@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using PrivateSchool.Entities.Concrete;
+    using PrivateSchool.Entities.Intermediaries;
 
     internal sealed class Configuration : DbMigrationsConfiguration<m_Database>
     {
@@ -41,10 +42,10 @@
             var s17 = new Student() { FirstName = "Vlassis", LastName = "Mouxos", DateOfBirth = new DateTime(1997, 1, 2), TuitionFees = 564, Email = "mouxos@gmail.com", PhoneNumber = "689122023", PhotoUrl = "https://ollienollie.files.wordpress.com/2009/10/untitled-41.jpg?w=700&h=" };
             var s18 = new Student() { FirstName = "Ilektra", LastName = "Spiliotaki", DateOfBirth = new DateTime(1991, 9, 17), TuitionFees = 1231, Email = "spiliotaki@gmail.com", PhoneNumber = "6891102026", PhotoUrl = "https://ollienollie.files.wordpress.com/2009/10/untitled-61.jpg?w=700&h=" };
 
-            var a1 = new Assignment() { Description = "PrivateSchoolAssignment" ,SubDate= new DateTime(2020, 3, 3)};
-            var a2 = new Assignment() { Description = "DatabaseAssignment" ,SubDate = new DateTime(2020, 5, 1) };
-            var a3 = new Assignment() { Description = "FrontEndAssignment" ,SubDate = new DateTime(2020, 6, 11) };
-            var a4 = new Assignment() { Description = "BackEndAssignment" ,SubDate = new DateTime(2020, 8, 22) };
+            var a1 = new Assignment() { Description = "PrivateSchoolAssignment" ,SubDate= new DateTime(2020, 3, 3),Mark=100};
+            var a2 = new Assignment() { Description = "DatabaseAssignment" ,SubDate = new DateTime(2020, 5, 1), Mark = 100 };
+            var a3 = new Assignment() { Description = "FrontEndAssignment" ,SubDate = new DateTime(2020, 6, 11), Mark = 100 };
+            var a4 = new Assignment() { Description = "BackEndAssignment" ,SubDate = new DateTime(2020, 8, 22), Mark = 100 };
 
             var t1 = new Trainer() { FirstName = "Hector", LastName = "Gkatsos",Email="hector@gmail.com",Salary=9000,PhoneNumber="691010101",PhotoUrl="#"};
             var t2 = new Trainer() { FirstName = "Billy", LastName = "Takis" ,Email = "billy@gmail.com", Salary = 3000, PhoneNumber = "691010102", PhotoUrl = "#" };
@@ -52,9 +53,13 @@
             var t4 = new Trainer() { FirstName = "Mitsos", LastName = "Testoglou", Email = "mitsos@gmail.com", Salary = 7000, PhoneNumber = "691010104", PhotoUrl = "#" };
             var t5 = new Trainer() { FirstName = "Trakis", LastName = "Pagkakis", Email = "trakis@gmail.com", Salary = 1000, PhoneNumber = "691010105", PhotoUrl = "#" };
 
+
             c1.Students = new List<Student>() { s1, s2, s3, s4, s5, s6 };
             c1.Assignments = new List<Assignment>() { a1, a2, a3 };
             c1.Trainers = new List<Trainer>() { t1, t2, t3 };
+            var sa1 = new StudentAssignments() { Student=s1,    Assignment=a1, StudentMark = 90 };
+            var sa2 = new StudentAssignments() { Student = s1, Assignment = a2, StudentMark = 80 };
+            var sa3 = new StudentAssignments() { Student = s1, Assignment = a3, StudentMark = 99 };
 
             c2.Students = new List<Student>() { s6, s7, s8, s9, s10, s11 };
             c2.Assignments = new List<Assignment>() { a2, a3, a4 };
@@ -72,10 +77,11 @@
             c5.Assignments = new List<Assignment>() { a4, a1, a3 };
             c5.Trainers = new List<Trainer>() { t2, t3, t1 };
 
-            context.Assignment.AddOrUpdate(x => x.Description, a1, a2, a3, a4);
-            context.Trainer.AddOrUpdate(x => x.Email, t1, t2, t3, t4, t5);
-            context.Student.AddOrUpdate(x => x.Email, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11);
-            context.Course.AddOrUpdate(x => x.Stream, c1, c2, c3, c4, c5);
+            context.Assignments.AddOrUpdate(x => x.Description, a1, a2, a3, a4);
+            context.Trainers.AddOrUpdate(x => x.Email, t1, t2, t3, t4, t5);
+            context.Students.AddOrUpdate(x => x.Email, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11);
+            context.Courses.AddOrUpdate(x => x.Stream, c1, c2, c3, c4, c5);
+            context.StudentAssignments.AddOrUpdate(x=>new {x.StudentId , x.AssignmentId }, sa1, sa2, sa3);
             context.SaveChanges();
         }
     }

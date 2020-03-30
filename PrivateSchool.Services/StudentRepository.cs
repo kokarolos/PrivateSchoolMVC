@@ -10,8 +10,8 @@ namespace PrivateSchool.Services
     public class StudentRepository : IRepository
     {
         private m_Database db = new m_Database();
-        public IEnumerable<Student> GetStudents()=> db.Student.ToList();
-        public Student GetStudent(int? id)=> db.Student.Find(id);
+        public IEnumerable<Student> GetStudents()=> db.Students.ToList();
+        public Student GetStudent(int? id)=> db.Students.Find(id);
         public void Insert(object entity)
         {
             var student = entity as Student;

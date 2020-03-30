@@ -18,3 +18,22 @@ select,
 textarea {
     max-width: 280px;
 }
+
+body {
+    background-color: #575757;
+    color: aliceblue;
+}
+.custom-menu{
+    background-color:lightskyblue;
+    width:auto;
+    height:36px;
+}
+.brand {
+    vertical-align: middle;
+    text-shadow: none;
+    line-height: 40px;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 10px;
+}
+

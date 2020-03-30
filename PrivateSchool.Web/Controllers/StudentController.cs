@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 using PrivateSchool.Entities.Concrete;
 using PrivateSchool.Services;
@@ -10,9 +12,16 @@ namespace PrivateSchool.Web.Controllers
         private StudentRepository repos = new StudentRepository();
 
         // GET: Student
-        public ActionResult Index()
+        public ActionResult Index(string FirstName)
         {
-            return View(repos.GetStudents());
+            if(string.IsNullOrWhiteSpace(FirstName))
+            {
+                return View(repos.GetStudents());
+            }
+            else
+            {
+                return View(repos.GetStudents().Where(x => x.FirstName.Equals(FirstName)));
+            }
         }
 
         // GET: Student/Details/5
