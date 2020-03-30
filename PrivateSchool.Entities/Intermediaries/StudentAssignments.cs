@@ -13,8 +13,10 @@ namespace PrivateSchool.Entities.Intermediaries
         [Key, Column(Order = 2)]
         public int AssignmentId { get; set; }
 
-        [Range(0,100,ErrorMessage ="Mark must be between 0-100")]
+        [Range(0,101,ErrorMessage ="Mark must be between 0-100")]
         public int StudentMark { get; set; }
+        [Range(0, 101, ErrorMessage = "Mark must be between 0-100")]
+        public int AssignmentMark { get; set; }
 
         public virtual Student Student { get; set; }
         public virtual Assignment Assignment { get; set; }

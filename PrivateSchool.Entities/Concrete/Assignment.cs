@@ -14,8 +14,7 @@ namespace PrivateSchool.Entities.Concrete
         [Required, DataType(DataType.Date)]
         [Display(Name = "Due To")]
         public DateTime SubDate { get; set; }
-        [Required,Range(0,100,ErrorMessage ="Mark must be between 0 and 100")]
-        public int Mark { get; set; }
+
 
 
         public virtual ICollection<Course> Courses { get; set; }
