@@ -9,8 +9,10 @@ namespace PrivateSchool.Entities.Concrete
     {
         public int AssignmentId { get; set; }
         [Required, MaxLength(60), MinLength(3)]
+        [Display(Name = "Desc")]
         public string Description { get; set; }
         [Required, DataType(DataType.Date)]
+        [Display(Name = "Due To")]
         public DateTime SubDate { get; set; }
         [Required,Range(0,100,ErrorMessage ="Mark must be between 0 and 100")]
         public int Mark { get; set; }

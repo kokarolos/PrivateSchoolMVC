@@ -12,8 +12,10 @@ namespace PrivateSchool.Entities.Concrete
         [Required]
         public Type Type { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Starting Date")]
         public DateTime? StartingDate { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Ending Date")]
         public DateTime? EndingDate { get; set; }
 
 
