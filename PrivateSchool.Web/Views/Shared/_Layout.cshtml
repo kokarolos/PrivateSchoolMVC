@@ -8,19 +8,26 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="wrapper">
+        <div class="wrapper">
             @*NavBar*@
             <div>
                 @RenderPage("Components/_NavBar.cshtml")
             </div>
-         @*Main*@
-         <div class="container">
-             @RenderBody()
-         </div>
-        <div>
-            @RenderPage("Components/_Footer.cshtml")
         </div>
-</div>
+<div class="container-fluid">
+        @*Main*@
+            <div class="row">
+                <div class="col-sm-2">
+                    @RenderPage("Components/_SideBar.cshtml")
+                </div>
+                <div class="col-10">
+                    @RenderBody()
+                </div>
+            </div>
+            <div>
+                @RenderPage("Components/_Footer.cshtml")
+            </div>
+    </div>
 
 
     @Scripts.Render("~/bundles/jquery")

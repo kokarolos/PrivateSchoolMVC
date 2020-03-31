@@ -26,7 +26,7 @@
 }
 <p><em>@ViewBag.message</em></p>
 
-<div class="sidebar left">
+@*<div class="sidebar left">
     <nav id="sidebar">
         <form name="FirstName" method="get">
             <label>FirstName</label>
@@ -34,14 +34,14 @@
             <button class="btn-primary">Search</button>
         </form>
     </nav>
-</div>
+</div>*@
     <table class="table table-bordered">
         <thead>
             <tr>
                 <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
                 <td>@Html.DisplayNameFor(x => x.FirstName)</td>
                 <td>@Html.DisplayNameFor(x => x.LastName)</td>
-                <td>@Html.DisplayNameFor(x => x.DateOfBirth)</td>
+                <td>@Html.DisplayNameFor(x => x.Age)</td>
                 <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
                 <td>@Html.DisplayNameFor(x => x.Email)</td>
                 <td>Courses-Assignments</td>
@@ -51,12 +51,11 @@
         <tbody>
             @foreach (var student in Model)
             {
-                int age = DateTime.Now.Year - student.DateOfBirth.Year;
             <tr>
                 <td><img src="@student.PhotoUrl" class="img-fluid" width="100" /></td>
                 <td>@Html.DisplayFor(x => student.FirstName)</td>
                 <td>@Html.DisplayFor(x => student.LastName)</td>
-                <td>@Html.DisplayFor(x => age)</td>
+                <td>@Html.DisplayFor(x => student.Age)</td>
                 <td>@Html.DisplayFor(x => student.PhoneNumber)</td>
                 <td>@Html.DisplayFor(x => student.Email)</td>
                 <td>
@@ -66,7 +65,7 @@
                             <li>@Html.DisplayFor(x => course.Stream)</li>
                             foreach (var assignment in course.Assignments)
                             {
-                                <li>@Html.DisplayFor(x => assignment.Description)</li>
+                                <ol>@Html.DisplayFor(x => assignment.Description)</ol>
                             }
                         }
                     </ul>
