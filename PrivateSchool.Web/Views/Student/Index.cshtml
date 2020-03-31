@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create",null,new {@class="btn btn-light" })
 </p>
 @{
     int count = Model.Count();
@@ -20,28 +20,14 @@
         ViewBag.message = count + " Student Found";
     }
 }
-@{
-    var className = "";
-    if (ViewBag.FirstNameSortParam.Equals("FirstNameDesc"))
-    {
-        className = "bi bi-arrow-down";
-    }
-    else
-    {
-        className = "bi bi-arrow-up";
-    }
-}
 <p><em>@ViewBag.message</em></p>
 
-<table class="table table-bordered display nowrap">
+<table class="table table-borderless table-dark">
     <thead>
         <tr>
             <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
-            <td>@Html.ActionLink("First Name", "Index", "Student", new { sortOrder = ViewBag.FirstNameSortParam })<svg class="bi bi-arrow-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" d="M4.646 9.646a.5.5 0 01.708 0L8 12.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd" />
-    <path fill-rule="evenodd" d="M8 2.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V3a.5.5 0 01.5-.5z" clip-rule="evenodd" />
-</svg></td>
-            <td>@Html.ActionLink("Last Name", "Index", "Student", new { sortOrder = ViewBag.LastNameSortParam },new {@class=className })<i class=@className></i></td>
+            <td>@Html.ActionLink("First Name", "Index", "Student", new { sortOrder = ViewBag.FirstNameSortParam },null)<td>
+            <td>@Html.ActionLink("Last Name", "Index", "Student", new { sortOrder = ViewBag.LastNameSortParam },null)</td>
             <td>@Html.DisplayNameFor(x => x.Age)</td>
             <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
             <td>@Html.DisplayNameFor(x => x.Email)</td>
@@ -71,12 +57,10 @@
                         }
                     </ul>
                 </td>
-
-
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-dark " })
-                    @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-dark" })
-                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-dark" })
+                    @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-light " })
+                    @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-light" })
+                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-light" })
                 </td>
             </tr>
 

@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-ligth" });
 </p>
 @{
     int count = Model.Count();
@@ -21,7 +21,7 @@
     }
 }
 <p><em>@ViewBag.message</em></p>
-<table class="table table-bordered">
+<table class="table table-borderless table-dark">
     <thead>
         <tr>
             <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
