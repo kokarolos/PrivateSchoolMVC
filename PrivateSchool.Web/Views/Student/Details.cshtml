@@ -6,45 +6,15 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Student</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+<h2>@Model.FirstName @Model.LastName</h2>
+<img src="@Model.PhotoUrl" alt="Student's Image" />
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TuitionFees)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TuitionFees)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<ul>
+    <li>@Html.DisplayNameFor(x => x.FirstName) : @Html.DisplayFor(x => x.FirstName)</li>
+    <li>@Html.DisplayNameFor(x => x.LastName) : @Html.DisplayFor(x => x.LastName)</li>
+    <li>@Html.DisplayNameFor(x => x.Age) : @Html.DisplayFor(x => x.Age)</li>
+    <li>@Html.DisplayNameFor(x => x.Email) : @Html.DisplayFor(x => x.Email)</li>
+    <li>@Html.DisplayNameFor(x => x.TuitionFees) : @Html.DisplayFor(x => x.TuitionFees)</li>
+</ul>
+@Html.ActionLink("Back To Students", "Index", "Student")

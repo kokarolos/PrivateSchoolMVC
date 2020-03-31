@@ -12,16 +12,28 @@ namespace PrivateSchool.Web.Controllers
         private StudentRepository repos = new StudentRepository();
 
         // GET: Student
-        public ActionResult Index(string FirstName)
+        public ActionResult Index(string sortOrder)
         {
-            if(string.IsNullOrWhiteSpace(FirstName))
+            ViewBag.FirstNameSortParam = string.IsNullOrEmpty(sortOrder) ? "FirstNameDesc" : "";
+            ViewBag.LastNameSortParam = sortOrder == "LastNameAsc" ? "LastNameDesc" : "LastNameAsc";
+            var students = repos.GetStudents();
+            switch (sortOrder)
             {
-                return View(repos.GetStudents());
+                case "FirstNameDesc":
+                    students = students.OrderByDescending(x => x.FirstName);
+                    break;
+                case "LastNameAsc":
+                    students = students.OrderBy(x => x.LastName);
+                    break;
+                case "LastNameDesc":
+                    students = students.OrderByDescending(x => x.LastName);
+                    break;
+                default:
+                    students = students.OrderBy(x => x.FirstName);
+                    break;
             }
-            else
-            {
-                return View(repos.GetStudents().Where(x => x.FirstName.Equals(FirstName)));
-            }
+
+            return View(students);
         }
 
         // GET: Student/Details/5

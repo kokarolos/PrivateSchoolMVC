@@ -26,21 +26,31 @@
         <tr>
             <td>@Html.DisplayNameFor(x => x.Description)</td>
             <td>@Html.DisplayNameFor(x => x.SubDate)</td>
+            <td>@Html.DisplayNameFor(x => x.Courses)</td>
             <td>Action</td>
         </tr>
     </thead>
     <tbody>
         @foreach (var assignment in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(x => assignment.Description)</td>
-                <td>@Html.DisplayFor(x => assignment.SubDate)</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = assignment.AssignmentId }) |
-                    @Html.ActionLink("Details", "Details", new { id = assignment.AssignmentId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = assignment.AssignmentId })
-                </td>
-            </tr>
+        <tr>
+            <td>@Html.DisplayFor(x => assignment.Description)</td>
+            <td>@Html.DisplayFor(x => assignment.SubDate)</td>
+            <td>
+                <ul>
+                    @foreach (var course in assignment.Courses)
+                    {
+                        <li><ol>@Html.DisplayFor(x => course.Stream)</ol></li>
+                    }
+                </ul>
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = assignment.AssignmentId }) |
+                @Html.ActionLink("Details", "Details", new { id = assignment.AssignmentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = assignment.AssignmentId })
+            </td>
+        </tr>
 
         }
     </tbody>

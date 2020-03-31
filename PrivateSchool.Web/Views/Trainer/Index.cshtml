@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PrivateSchool.Entities.Concrete.Trainer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Trainers";
 }
 
 <h2>Index</h2>
@@ -30,6 +30,7 @@
             <td>@Html.DisplayNameFor(x => x.Salary)</td>
             <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
             <td>@Html.DisplayNameFor(x => x.Email)</td>
+            <td>@Html.DisplayNameFor(x=>x.Courses)</td>
             <td>Action</td>
         </tr>
     </thead>
@@ -43,6 +44,15 @@
             <td>@Html.DisplayFor(x => trainer.Salary)</td>
             <td>@Html.DisplayFor(x => trainer.PhoneNumber)</td>
             <td>@Html.DisplayFor(x => trainer.Email)</td>
+            <td>
+                <ul>
+                    @foreach (var course in trainer.Courses)
+                    {
+                       
+                       <li><ol>@Html.DisplayFor(x => course.Stream)</ol></li>
+                    }
+                </ul>
+            </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = trainer.TrainerId }) |
                 @Html.ActionLink("Details", "Details", new { id = trainer.TrainerId }) |

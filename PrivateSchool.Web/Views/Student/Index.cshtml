@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PrivateSchool.Entities.Concrete.Student>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Students";
 }
 
 <h2>Index</h2>
@@ -9,10 +9,6 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@{
-    ViewBag.Title = "Index";
-}
-
 @{
     int count = Model.Count();
     if (count > 0)
@@ -24,33 +20,38 @@
         ViewBag.message = count + " Student Found";
     }
 }
+@{
+    var className = "";
+    if (ViewBag.FirstNameSortParam.Equals("FirstNameDesc"))
+    {
+        className = "bi bi-arrow-down";
+    }
+    else
+    {
+        className = "bi bi-arrow-up";
+    }
+}
 <p><em>@ViewBag.message</em></p>
 
-@*<div class="sidebar left">
-    <nav id="sidebar">
-        <form name="FirstName" method="get">
-            <label>FirstName</label>
-            <input type="text" name="FirstName" />
-            <button class="btn-primary">Search</button>
-        </form>
-    </nav>
-</div>*@
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
-                <td>@Html.DisplayNameFor(x => x.FirstName)</td>
-                <td>@Html.DisplayNameFor(x => x.LastName)</td>
-                <td>@Html.DisplayNameFor(x => x.Age)</td>
-                <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
-                <td>@Html.DisplayNameFor(x => x.Email)</td>
-                <td>Courses-Assignments</td>
-                <td>Action</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var student in Model)
-            {
+<table class="table table-bordered display nowrap">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
+            <td>@Html.ActionLink("First Name", "Index", "Student", new { sortOrder = ViewBag.FirstNameSortParam })<svg class="bi bi-arrow-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M4.646 9.646a.5.5 0 01.708 0L8 12.293l2.646-2.647a.5.5 0 01.708.708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 010-.708z" clip-rule="evenodd" />
+    <path fill-rule="evenodd" d="M8 2.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V3a.5.5 0 01.5-.5z" clip-rule="evenodd" />
+</svg></td>
+            <td>@Html.ActionLink("Last Name", "Index", "Student", new { sortOrder = ViewBag.LastNameSortParam },new {@class=className })<i class=@className></i></td>
+            <td>@Html.DisplayNameFor(x => x.Age)</td>
+            <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
+            <td>@Html.DisplayNameFor(x => x.Email)</td>
+            <td>Courses-Assignments</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
             <tr>
                 <td><img src="@student.PhotoUrl" class="img-fluid" width="100" /></td>
                 <td>@Html.DisplayFor(x => student.FirstName)</td>
@@ -65,7 +66,7 @@
                             <li>@Html.DisplayFor(x => course.Stream)</li>
                             foreach (var assignment in course.Assignments)
                             {
-                                <ol>@Html.DisplayFor(x => assignment.Description)</ol>
+                                <li><ol>@Html.DisplayFor(x => assignment.Description)</ol></li>
                             }
                         }
                     </ul>
@@ -75,9 +76,10 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-dark " })
                     @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-dark" })
-                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-dark" })</td>
+                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-dark" })
+                </td>
             </tr>
 
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
