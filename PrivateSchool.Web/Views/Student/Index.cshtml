@@ -52,32 +52,32 @@
             @foreach (var student in Model)
             {
                 int age = DateTime.Now.Year - student.DateOfBirth.Year;
-                <tr>
-                    <td><img src="@student.PhotoUrl" class="img-fluid" /></td>
-                    <td>@Html.DisplayFor(x => student.FirstName)</td>
-                    <td>@Html.DisplayFor(x => student.LastName)</td>
-                    <td>@Html.DisplayFor(x => age)</td>
-                    <td>@Html.DisplayFor(x => student.PhoneNumber)</td>
-                    <td>@Html.DisplayFor(x => student.Email)</td>
-                    <td>
-                        <ul>
-                            @foreach (var course in student.Courses)
+            <tr>
+                <td><img src="@student.PhotoUrl" class="img-fluid" width="100" /></td>
+                <td>@Html.DisplayFor(x => student.FirstName)</td>
+                <td>@Html.DisplayFor(x => student.LastName)</td>
+                <td>@Html.DisplayFor(x => age)</td>
+                <td>@Html.DisplayFor(x => student.PhoneNumber)</td>
+                <td>@Html.DisplayFor(x => student.Email)</td>
+                <td>
+                    <ul>
+                        @foreach (var course in student.Courses)
+                        {
+                            <li>@Html.DisplayFor(x => course.Stream)</li>
+                            foreach (var assignment in course.Assignments)
                             {
-                                <li>@Html.DisplayFor(x => course.Stream)</li>
-                                foreach (var assignment in course.Assignments)
-                                {
-                                    <li>@Html.DisplayFor(x => assignment.Description)</li>
-                                }
+                                <li>@Html.DisplayFor(x => assignment.Description)</li>
                             }
-                        </ul>
-                    </td>
+                        }
+                    </ul>
+                </td>
 
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class="btn btn-dark " })
-                        @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class="btn btn-dark" }) 
-                        @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class="btn btn-dark" })
-                    </td>
-                </tr>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-dark " })
+                    @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-dark" })
+                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-dark" })</td>
+            </tr>
 
             }
         </tbody>

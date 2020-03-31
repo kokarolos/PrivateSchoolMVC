@@ -16,7 +16,6 @@ namespace PrivateSchool.Entities.Concrete
         public DateTime SubDate { get; set; }
 
 
-
         public virtual ICollection<Course> Courses { get; set; }
         public virtual ICollection<StudentAssignments> StudentAssignments { get; set; }
     }

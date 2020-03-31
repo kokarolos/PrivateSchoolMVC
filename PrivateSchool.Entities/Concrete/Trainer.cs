@@ -29,6 +29,7 @@ namespace PrivateSchool.Entities.Concrete
         [MaxLength(10), DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone")]
         public string PhoneNumber { get; set; }
+
         public virtual ICollection<Course> Courses { get; set; }
     }
 }

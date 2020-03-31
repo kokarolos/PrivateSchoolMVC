@@ -13,11 +13,11 @@
     int count = Model.Count();
     if (count > 0)
     {
-        ViewBag.message = count + " Students Found";
+        ViewBag.message = count + " Assignments Found";
     }
     else if (count == 1)
     {
-        ViewBag.message = count + " Student Found";
+        ViewBag.message = count + " Assignment Found";
     }
 }
 <p><em>@ViewBag.message</em></p>
