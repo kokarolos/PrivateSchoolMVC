@@ -4,6 +4,8 @@ using System.Net;
 using System.Web.Mvc;
 using PrivateSchool.Entities.Concrete;
 using PrivateSchool.Services;
+using PagedList;
+using PagedList.Mvc;
 
 namespace PrivateSchool.Web.Controllers
 {
@@ -12,28 +14,63 @@ namespace PrivateSchool.Web.Controllers
         private StudentRepository repos = new StudentRepository();
 
         // GET: Student
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder,string firstName,string lastName,int? minAge,int? maxAge,int? page)
         {
+            var students = repos.GetStudents();
+
+            ViewBag.CurrentFirstName = firstName;
+            ViewBag.CurrentLastName = lastName;
+            ViewBag.CurrentMinAge = minAge;
+            ViewBag.CurrentMaxAge = maxAge;
+            ViewBag.CurrentSortOrder = sortOrder;
+
             ViewBag.FirstNameSortParam = string.IsNullOrEmpty(sortOrder) ? "FirstNameDesc" : "";
             ViewBag.LastNameSortParam = sortOrder == "LastNameAsc" ? "LastNameDesc" : "LastNameAsc";
-            var students = repos.GetStudents();
+            ViewBag.AgeSortParam = sortOrder == "AgeAsc" ? "AgeDesc" : "AgeAsc";
+
+            ViewBag.FNView = "badge badge-primary";
+            ViewBag.LNView = "badge badge-primary";
+            ViewBag.AGView = "badge badge-primary";
+
             switch (sortOrder)
             {
                 case "FirstNameDesc":
                     students = students.OrderByDescending(x => x.FirstName);
+                    ViewBag.FNView = "badge badge-danger"; 
                     break;
-                case "LastNameAsc":
-                    students = students.OrderBy(x => x.LastName);
+                case "LastNameAsc": 
+                    students = students.OrderBy(x => x.LastName); 
+                    ViewBag.LNView = "badge badge-success"; 
                     break;
                 case "LastNameDesc":
-                    students = students.OrderByDescending(x => x.LastName);
+                    students = students.OrderByDescending(x => x.LastName); 
+                    ViewBag.LNView = "badge badge-danger"; 
                     break;
-                default:
-                    students = students.OrderBy(x => x.FirstName);
+                case "AgeAsc": 
+                    students = students.OrderBy(x => x.Age); 
+                    ViewBag.AGView = "badge badge-success"; 
                     break;
-            }
+                case "AgeDesc": 
+                    students = students.OrderByDescending(x => x.Age);
+                    ViewBag.AGView = "badge badge-danger"; 
+                    break;
 
-            return View(students);
+                default: students = students.OrderBy(x => x.FirstName); ViewBag.FNView = "badge badge-success"; break;
+            }
+            //FirstName Filter
+            students = string.IsNullOrWhiteSpace(firstName) ? students : students.Where(x => x.FirstName.ToUpper().Contains(firstName.ToUpper()));
+            //LastName Fillter
+            students = string.IsNullOrWhiteSpace(lastName) ? students : students.Where(x => x.LastName.ToUpper().Contains(lastName.ToUpper()));
+            //MinAge Filter
+            students = minAge is null ? students : students.Where(x => x.Age >= minAge);
+            //MaxAge Filter
+            students = maxAge is null ? students : students.Where(x => x.Age <= maxAge);
+
+            //Pagination
+            var pageSize = 3;
+            var pageNum = page ?? 1;
+
+            return View(students.ToPagedList(pageNum, pageSize));
         }
 
         // GET: Student/Details/5
