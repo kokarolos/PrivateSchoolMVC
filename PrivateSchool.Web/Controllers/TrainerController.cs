@@ -12,7 +12,7 @@ namespace PrivateSchool.Web.Controllers
         private TrainerRepository repos = new TrainerRepository();
 
         // GET: Trainer
-        public ActionResult Index(string sortOrder, string firstName,string lastName,int? minSalary,int? maxSalary,int? page)
+        public ActionResult Index(string sortOrder, string firstName,string lastName,int? minSalary,int? maxSalary,int? page,int? userPageSize)
         {
             var trainers = repos.GetTrainers();
 
@@ -20,6 +20,7 @@ namespace PrivateSchool.Web.Controllers
             ViewBag.CurrentLastName = lastName;
             ViewBag.CurrentMinSalary = minSalary;
             ViewBag.CurrentMaxSalary = maxSalary;
+            ViewBag.PageSize = userPageSize;
             ViewBag.CurrentSortOrder = sortOrder;
 
             ViewBag.FirstNameSortParam = string.IsNullOrEmpty(sortOrder) ? "FirstNameDesc" : "";
@@ -65,7 +66,7 @@ namespace PrivateSchool.Web.Controllers
             trainers = maxSalary is null ? trainers : trainers.Where(x => x.Salary <= maxSalary);
 
             //Pagination
-            var pageSize = 3;
+            var pageSize = userPageSize ?? 3;
             var pageNum = page ?? 1;
 
             return View(trainers.ToPagedList(pageNum, pageSize));

@@ -14,7 +14,7 @@ namespace PrivateSchool.Web.Controllers
         private StudentRepository repos = new StudentRepository();
 
         // GET: Student
-        public ActionResult Index(string sortOrder,string firstName,string lastName,int? minAge,int? maxAge,int? page)
+        public ActionResult Index(string sortOrder,string firstName,string lastName,int? minAge,int? maxAge,int? page,int? userPageSize)
         {
             var students = repos.GetStudents();
 
@@ -23,6 +23,7 @@ namespace PrivateSchool.Web.Controllers
             ViewBag.CurrentMinAge = minAge;
             ViewBag.CurrentMaxAge = maxAge;
             ViewBag.CurrentSortOrder = sortOrder;
+            ViewBag.PageSize = userPageSize;
 
             ViewBag.FirstNameSortParam = string.IsNullOrEmpty(sortOrder) ? "FirstNameDesc" : "";
             ViewBag.LastNameSortParam = sortOrder == "LastNameAsc" ? "LastNameDesc" : "LastNameAsc";
@@ -67,7 +68,7 @@ namespace PrivateSchool.Web.Controllers
             students = maxAge is null ? students : students.Where(x => x.Age <= maxAge);
 
             //Pagination
-            var pageSize = 3;
+            var pageSize = userPageSize ?? 3;
             var pageNum = page ?? 1;
 
             return View(students.ToPagedList(pageNum, pageSize));

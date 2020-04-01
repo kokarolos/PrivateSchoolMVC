@@ -1,5 +1,7 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using System.Web.Mvc;
+using PagedList;
 using PrivateSchool.Entities.Concrete;
 using PrivateSchool.Services;
 
@@ -10,9 +12,50 @@ namespace PrivateSchool.Web.Controllers
         private AssignmentRepository repos = new AssignmentRepository();
 
         // GET: Assignment
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder,string desc,string subDate,int? page,int? userPageSize)
         {
-            return View(repos.GetAssignments());
+            var assignments = repos.GetAssignments();
+
+            ViewBag.CurrentDesc = desc;
+            ViewBag.CurrentSubDate = subDate;
+            ViewBag.PageSize = userPageSize;
+            ViewBag.CurrentSortOrder = sortOrder;
+
+            ViewBag.DescSortParam = string.IsNullOrEmpty(sortOrder) ? "DescDesc" : "";
+            ViewBag.SubDateSortParam = sortOrder == "SubDateAsc" ? "SubDateDesc" : "SubDateAsc";
+
+            ViewBag.DView = "badge badge-primary";
+            ViewBag.SView = "badge badge-primary";
+
+            switch (sortOrder)
+            {
+                case "DescDesc":
+                    assignments = assignments.OrderByDescending(x => x.Description);
+                    ViewBag.DView = "badge badge-danger";
+                    break;
+                case "SubDateAsc":
+                    assignments = assignments.OrderBy(x => x.SubDate);
+                    ViewBag.TView = "badge badge-success";
+                    break;
+                case "SubDateDesc":
+                    assignments = assignments.OrderBy(x => x.SubDate);
+                    ViewBag.TView = "badge badge-success";
+                    break;
+                default:
+                    assignments = assignments.OrderBy(x => x.Description);
+                    ViewBag.SView = "badge badge-success";
+                    break;
+            }
+            //Stream Filter
+            assignments = string.IsNullOrWhiteSpace(desc) ? assignments : assignments.Where(x => x.Description.ToUpper().Contains(desc.ToUpper()));
+
+            //Type Fillter
+            assignments = string.IsNullOrWhiteSpace(subDate) ? assignments : assignments.Where(x => x.SubDate.ToString().Equals(subDate));
+
+            var pageSize = userPageSize ?? 3;
+            var pageNum = page ?? 1;
+
+            return View(assignments.ToPagedList(pageNum, pageSize));
         }
 
         // GET: Assignment/Details/5

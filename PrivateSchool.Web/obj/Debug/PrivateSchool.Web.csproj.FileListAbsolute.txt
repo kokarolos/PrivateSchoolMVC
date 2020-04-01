@@ -56,6 +56,8 @@ C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\En
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\Newtonsoft.Json.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.Mvc.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PrivateSchool.Database.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PrivateSchool.Entities.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PrivateSchool.Services.dll
@@ -75,6 +77,8 @@ C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\Pr
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PrivateSchool.Services.dll.config
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\EntityFramework.xml
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.xml
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.Mvc.xml
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\System.Web.Helpers.xml
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\System.Web.Mvc.xml
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\System.Web.Optimization.xml
@@ -89,7 +93,3 @@ C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\obj\De
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\obj\Debug\PrivateSchool.Web.csproj.CopyComplete
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\obj\Debug\PrivateSchool.Web.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\obj\Debug\PrivateSchool.Web.pdb
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.dll
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.Mvc.dll
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.xml
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Web\bin\PagedList.Mvc.xml
