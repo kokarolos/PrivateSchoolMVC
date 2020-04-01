@@ -23,12 +23,14 @@ html, body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
+	
 }
 
 body {
 	font-family: "Helvetica Neue",sans-serif;
 	font-weight: lighter;
 	background-color: #343a40;
+	color:lightslategray;
 }
 
 header {

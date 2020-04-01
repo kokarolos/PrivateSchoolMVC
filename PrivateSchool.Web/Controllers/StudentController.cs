@@ -99,7 +99,7 @@ namespace PrivateSchool.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,DateOfBirth,TuitionFees")] Student student)
+        public ActionResult Create([Bind(Include = "StdudentId,FirstName,LastName,DateOfBirth,TuitionFees,PhoneNumber,Email,PhotoUrl")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -130,7 +130,7 @@ namespace PrivateSchool.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,DateOfBirth,TuitionFees")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,DateOfBirth,PhoneNumber,TuitionFees,Email,PhotoUrl")] Student student)
         {
             if (ModelState.IsValid)
             {

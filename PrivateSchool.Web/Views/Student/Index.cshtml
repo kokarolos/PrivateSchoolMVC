@@ -9,7 +9,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-light" })
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-dark" })
 </p>
 @{
     int count = Model.Count();
@@ -38,7 +38,7 @@
 }
 
 
-<table class="table table table-light">
+<table class="table table-bordered table-dark">
     <thead>
         <tr>
             <td>@Html.DisplayName("Photo")</td>
@@ -51,7 +51,7 @@
                     minAge = ViewBag.CurrentMinAge,
                     maxAge = ViewBag.CurrentMaxAge
                 }, new { @class = ViewBag.FNView })
-            <td>
+            </td>
             <td>
                 @Html.ActionLink("Last Name", "Index", "Student", new
                 {
@@ -75,6 +75,7 @@
             <td>@Html.DisplayName("Phone")</td>
             <td>@Html.DisplayName("Email")</td>
             <td>@Html.DisplayName("CoursesAssignemnts")</td>
+            <td>@Html.DisplayName("Action")</td>
         </tr>
     </thead>
     <tbody>
@@ -100,9 +101,9 @@
                     </ul>
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-light " })
-                    @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-light" })
-                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-light" })
+                    @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-dark " })
+                    @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-dark" })
+                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-dark" })
                 </td>
             </tr>
         }

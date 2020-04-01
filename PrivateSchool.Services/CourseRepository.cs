@@ -4,15 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrivateSchool.Services
 {
     public class CourseRepository :IRepository
     {
         public m_Database db = new m_Database();
-        public IEnumerable<Course> GetCourses() => db.Courses.ToList();
+        public IEnumerable<Course> GetCourses() => db.Courses.Include(x => x.Assignments).Include(x => x.Students).Include(x => x.Trainers).ToList();
         public Course GetCourse(int? id) => db.Courses.Find(id);
         public void Insert(object entity)
         {

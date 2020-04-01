@@ -155,7 +155,6 @@
             var sa71 = new StudentAssignments() { Student = s18, Assignment = a11, StudentMark = 79 , AssignmentMark = 100, SeedProp = "71" };
             var sa72 = new StudentAssignments() { Student = s18, Assignment = a12, StudentMark = 100, AssignmentMark = 100, SeedProp = "72" };
 
-
             c5.Students = new List<Student>() { s11, s12, s13, s14, s15, s16 };
             c5.Assignments = new List<Assignment>() { a12, a1, a3 };
             c5.Trainers = new List<Trainer>() { t2, t3, t1 };
