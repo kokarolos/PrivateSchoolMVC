@@ -6,7 +6,7 @@
     ViewBag.Title = "Students";
 }
 
-<h2>Index</h2>
+<h2>Students</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-dark" })
@@ -24,91 +24,101 @@
 }
 <p><em>@ViewBag.message</em></p>
 
-@using (Html.BeginForm("Index", "Student", FormMethod.Get))
-{
+<div class="row">
+        <div class="col-2">
+            @using (Html.BeginForm("Index", "Student", FormMethod.Get))
+            {
 
-    @Html.TextBox("firstName", null, new { placeholder = "Search FirstName" })
-    @Html.TextBox("lastName", null, new { placeholder = "Search LastName" })
-    @Html.TextBox("minAge", null, new { type = "number", placeholder = "Search Min Age" })
-    @Html.TextBox("maxAge", null, new { type = "number", placeholder = "Search Max Age" })
-    string str = ViewBag.CurrentSortOrder;
-    @Html.TextBox("sortOrder", str, new { type = "hidden" })
+                @Html.TextBox("firstName", null, new { placeholder = "Search FirstName" })
+                @Html.TextBox("lastName", null, new { placeholder = "Search LastName" })
+                @Html.TextBox("minAge", null, new { type = "number", placeholder = "Search Min Age" })
+                @Html.TextBox("maxAge", null, new { type = "number", placeholder = "Search Max Age" })
+                string str = ViewBag.CurrentSortOrder;
+                @Html.TextBox("sortOrder", str, new { type = "hidden" })
 
-    <input type="submit" value="Search" />
-}
-
-
-<table class="table table-bordered table-dark">
-    <thead>
-        <tr>
-            <td>@Html.DisplayName("Photo")</td>
-            <td>
-                @Html.ActionLink("First Name", "Index", "Student",
-                new{
-                    sortOrder = ViewBag.FirstNameSortParam,
-                    firstName = ViewBag.CurrentFirstName,
-                    lastName = ViewBag.CurrentLastName,
-                    minAge = ViewBag.CurrentMinAge,
-                    maxAge = ViewBag.CurrentMaxAge
-                }, new { @class = ViewBag.FNView })
-            </td>
-            <td>
-                @Html.ActionLink("Last Name", "Index", "Student", new
-                {
-                    sortOrder = ViewBag.LastNameSortParam,
-                    firstName = ViewBag.CurrentFirstName,
-                    lastName = ViewBag.CurrentLastName,
-                    minAge = ViewBag.CurrentMinAge,
-                    maxAge = ViewBag.CurrentMaxAge
-                }, new { @class = ViewBag.LNView })
-            </td>
-            <td>
-                @Html.ActionLink("Age", "Index", "Student", new
-                {
-                    sortOrder = ViewBag.AgeSortParam,
-                    firstName = ViewBag.CurrentFirstName,
-                    lastName = ViewBag.CurrentLastName,
-                    minAge = ViewBag.CurrentMinAge,
-                    maxAge = ViewBag.CurrentMaxAge
-                 }, new { @class = ViewBag.AGView })
-            </td>
-            <td>@Html.DisplayName("Phone")</td>
-            <td>@Html.DisplayName("Email")</td>
-            <td>@Html.DisplayName("CoursesAssignemnts")</td>
-            <td>@Html.DisplayName("Action")</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var student in Model)
-        {
-            <tr>
-                <td><img src="@student.PhotoUrl" class="img-fluid" width="150" /></td>
-                <td>@Html.DisplayFor(x => student.FirstName)</td>
-                <td>@Html.DisplayFor(x => student.LastName)</td>
-                <td>@Html.DisplayFor(x => student.Age)</td>
-                <td>@Html.DisplayFor(x => student.PhoneNumber)</td>
-                <td>@Html.DisplayFor(x => student.Email)</td>
-                <td>
-                    <ul>
-                        @foreach (var course in student.Courses)
+                <input type="submit" value="Search" />
+            }
+    </div>
+    <div class="col-10">
+        <table class="table table-dark ">
+            <thead>
+                <tr>
+                    <td>@Html.DisplayName("Photo")</td>
+                    <td>
+                        @Html.ActionLink("First Name", "Index", "Student",
+                        new
+                             {
+                            sortOrder = ViewBag.FirstNameSortParam,
+                            firstName = ViewBag.CurrentFirstName,
+                            lastName = ViewBag.CurrentLastName,
+                            minAge = ViewBag.CurrentMinAge,
+                            maxAge = ViewBag.CurrentMaxAge
+                        }, new { @class = ViewBag.FNView })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Last Name", "Index", "Student", new
                         {
-                            <li>@Html.DisplayFor(x => course.Stream)</li>
-                            foreach (var assignment in course.Assignments)
-                            {
-                                <li><ol>@Html.DisplayFor(x => assignment.Description)</ol></li>
-                            }
-                        }
-                    </ul>
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-dark " })
-                    @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-dark" })
-                    @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-dark" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                            sortOrder = ViewBag.LastNameSortParam,
+                            firstName = ViewBag.CurrentFirstName,
+                            lastName = ViewBag.CurrentLastName,
+                            minAge = ViewBag.CurrentMinAge,
+                            maxAge = ViewBag.CurrentMaxAge
+                        }, new { @class = ViewBag.LNView })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Age", "Index", "Student", new
+                        {
+                            sortOrder = ViewBag.AgeSortParam,
+                            firstName = ViewBag.CurrentFirstName,
+                            lastName = ViewBag.CurrentLastName,
+                            minAge = ViewBag.CurrentMinAge,
+                            maxAge = ViewBag.CurrentMaxAge
+                         }, new { @class = ViewBag.AGView })
+                    </td>
+                    <td>@Html.DisplayName("Phone")</td>
+                    <td>@Html.DisplayName("Email")</td>
+                    <td>@Html.DisplayName("CoursesAssignemnts")</td>
+                    <td>@Html.DisplayName("Action")</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td><img src="@student.PhotoUrl" class="img-fluid" width="150" /></td>
+                        <td>@Html.DisplayFor(x => student.FirstName)</td>
+                        <td>@Html.DisplayFor(x => student.LastName)</td>
+                        <td>@Html.DisplayFor(x => student.Age)</td>
+                        <td>@Html.DisplayFor(x => student.PhoneNumber)</td>
+                        <td>@Html.DisplayFor(x => student.Email)</td>
+                        <td>
+                            <ul>
+                                @foreach (var course in student.Courses)
+                                {
+                                    <li>@Html.DisplayFor(x => course.Stream)</li>
+                                    foreach (var assignment in course.Assignments)
+                                    {
+                                        <li><ol>@Html.DisplayFor(x => assignment.Description)</ol></li>
+                                    }
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = student.StudentId }, new { @class = "btn btn-dark " })
+                            @Html.ActionLink("Details", "Details", new { id = student.StudentId }, new { @class = "btn btn-dark" })
+                            @Html.ActionLink("Delete", "Delete", new { id = student.StudentId }, new { @class = "btn btn-dark" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 @Html.PagedListPager(Model, x => @Url.Action("Index", "Student", new { page = x, sortOrder = ViewBag.CurrentSortOrder, firstname = ViewBag.CurrentFirstName, lastname = ViewBag.CurrentLastName, minage = ViewBag.CurrentMinAge, maxage = ViewBag.CurrentMaxAge }))
 

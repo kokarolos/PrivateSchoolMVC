@@ -11,18 +11,18 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(m_Database context)
         {
             //------Conrete------
 
-            var c1 = new Course() { Stream = "CB9", Type = Entities.Concrete.Type.C ,StartingDate=new DateTime(2020,5,1),EndingDate= new DateTime(2020,11, 1) };
-            var c2 = new Course() { Stream = "CB10", Type = Entities.Concrete.Type.CSharp, StartingDate = new DateTime(2020, 6, 1), EndingDate = new DateTime(2020, 12, 1) };
-            var c3 = new Course() { Stream = "CB11", Type = Entities.Concrete.Type.Java, StartingDate = new DateTime(2020, 7, 1), EndingDate = new DateTime(2021, 11, 3) };
-            var c4 = new Course() { Stream = "CB12", Type = Entities.Concrete.Type.JS, StartingDate = new DateTime(2020, 8, 1), EndingDate = new DateTime(2021, 9, 5) };
-            var c5 = new Course() { Stream = "CB13", Type = Entities.Concrete.Type.CSharp, StartingDate = new DateTime(2020, 9, 1), EndingDate = new DateTime(2021, 12, 12) };
+            var c1 = new Course() { Stream = "CB9", Type = Entities.Concrete.Type.C ,StartingDate=new DateTime(2020,5,1),EndingDate= new DateTime(2020,11, 1), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=CB9" };
+            var c2 = new Course() { Stream = "CB10", Type = Entities.Concrete.Type.CSharp, StartingDate = new DateTime(2020, 6, 1), EndingDate = new DateTime(2020, 12, 1),PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=CB10" };
+            var c3 = new Course() { Stream = "CB11", Type = Entities.Concrete.Type.Java, StartingDate = new DateTime(2020, 7, 1), EndingDate = new DateTime(2021, 11, 3), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=CB11" };
+            var c4 = new Course() { Stream = "CB12", Type = Entities.Concrete.Type.JS, StartingDate = new DateTime(2020, 8, 1), EndingDate = new DateTime(2021, 9, 5), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=CB12" };
+            var c5 = new Course() { Stream = "CB13", Type = Entities.Concrete.Type.CSharp, StartingDate = new DateTime(2020, 9, 1), EndingDate = new DateTime(2021, 12, 12), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=CB13" };
 
             var s1 = new Student() { FirstName = "Karol", LastName = "Koniewicz", DateOfBirth = new DateTime(1994, 10, 13), TuitionFees = 500,Email="karolos@gmail.com",PhoneNumber="689102021",PhotoUrl= "https://ollienollie.files.wordpress.com/2009/10/untitled-161.jpg?w=700&h=" };
             var s2 = new Student() { FirstName = "Sofia", LastName = "Panta", DateOfBirth = new DateTime(1996, 10, 13), TuitionFees = 1455, Email = "sofia@gmail.com", PhoneNumber = "689102022", PhotoUrl = "https://ollienollie.files.wordpress.com/2009/10/untitled-151.jpg?w=700&h=" };
@@ -43,24 +43,24 @@
             var s17 = new Student() { FirstName = "Vlassis", LastName = "Mouxos", DateOfBirth = new DateTime(1997, 1, 2), TuitionFees = 564, Email = "mouxos@gmail.com", PhoneNumber = "689122023", PhotoUrl = "https://ollienollie.files.wordpress.com/2009/10/untitled-41.jpg?w=700&h=" };
             var s18 = new Student() { FirstName = "Ilektra", LastName = "Spiliotaki", DateOfBirth = new DateTime(1991, 9, 17), TuitionFees = 1231, Email = "spiliotaki@gmail.com", PhoneNumber = "6891102026", PhotoUrl = "https://ollienollie.files.wordpress.com/2009/10/untitled-61.jpg?w=700&h=" };
 
-            var a1 = new Assignment() { Description = "PrivateSchoolAssignment" ,SubDate= new DateTime(2020, 3, 3)};
-            var a2 = new Assignment() { Description = "DatabaseAssignment" ,SubDate = new DateTime(2020, 5, 1)};
-            var a3 = new Assignment() { Description = "FrontEndAssignment" ,SubDate = new DateTime(2020, 6, 11) };
-            var a4 = new Assignment() { Description = "BackEndAssignment" ,SubDate = new DateTime(2020, 8, 22) };
-            var a5 = new Assignment() { Description = "AspMvc" ,SubDate= new DateTime(2020, 7, 3)};
-            var a6 = new Assignment() { Description = "Unity" ,SubDate = new DateTime(2020, 8, 1)};
-            var a7 = new Assignment() { Description = "MicroControllers" ,SubDate = new DateTime(2020, 9, 11) };
-            var a8 = new Assignment() { Description = "UnitTesting" ,SubDate = new DateTime(2020, 10, 22) };
-            var a9 = new Assignment() { Description = "UnrealEnginge" ,SubDate= new DateTime(2020, 12, 3)};
-            var a10 = new Assignment() { Description = "WinForms" ,SubDate = new DateTime(2020, 1, 1)};
-            var a11 = new Assignment() { Description = "WPF" ,SubDate = new DateTime(2020, 7, 11) };
-            var a12 = new Assignment() { Description = "Console Application" ,SubDate = new DateTime(2020, 8, 22) };
+            var a1 = new Assignment() { Description = "PrivateSchoolAssignment" ,SubDate= new DateTime(2020, 3, 3),PhotoUrl= "https://dummyimage.com/600x400/000/fff&text=AS1" };
+            var a2 = new Assignment() { Description = "DatabaseAssignment" ,SubDate = new DateTime(2020, 5, 1), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS2" };
+            var a3 = new Assignment() { Description = "FrontEndAssignment" ,SubDate = new DateTime(2020, 6, 11), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS3" };
+            var a4 = new Assignment() { Description = "BackEndAssignment" ,SubDate = new DateTime(2020, 8, 22), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS4" };
+            var a5 = new Assignment() { Description = "AspMvc" ,SubDate= new DateTime(2020, 7, 3), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS5" };
+            var a6 = new Assignment() { Description = "Unity" ,SubDate = new DateTime(2020, 8, 1), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS6" };
+            var a7 = new Assignment() { Description = "MicroControllers" ,SubDate = new DateTime(2020, 9, 11), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS7" };
+            var a8 = new Assignment() { Description = "UnitTesting" ,SubDate = new DateTime(2020, 10, 22), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS8" };
+            var a9 = new Assignment() { Description = "UnrealEnginge" ,SubDate= new DateTime(2020, 12, 3), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS9" };
+            var a10 = new Assignment() { Description = "WinForms" ,SubDate = new DateTime(2020, 1, 1), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS10" };
+            var a11 = new Assignment() { Description = "WPF" ,SubDate = new DateTime(2020, 7, 11), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS11" };
+            var a12 = new Assignment() { Description = "Console Application" ,SubDate = new DateTime(2020, 8, 22), PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=AS12" };
 
-            var t1 = new Trainer() { FirstName = "Hector", LastName = "Gkatsos",Email="hector@gmail.com",Salary=9000,PhoneNumber="691010101",PhotoUrl="#"};
-            var t2 = new Trainer() { FirstName = "Billy", LastName = "Takis" ,Email = "billy@gmail.com", Salary = 3000, PhoneNumber = "691010102", PhotoUrl = "#" };
-            var t3 = new Trainer() { FirstName = "Makis", LastName = "Vader" , Email = "makis@gmail.com", Salary = 2000, PhoneNumber = "691010103", PhotoUrl = "#" };
-            var t4 = new Trainer() { FirstName = "Mitsos", LastName = "Testoglou", Email = "mitsos@gmail.com", Salary = 7000, PhoneNumber = "691010104", PhotoUrl = "#" };
-            var t5 = new Trainer() { FirstName = "Trakis", LastName = "Pagkakis", Email = "trakis@gmail.com", Salary = 1005, PhoneNumber = "691010105", PhotoUrl = "#" };
+            var t1 = new Trainer() { FirstName = "Hector", LastName = "Gkatsos",Email="hector@gmail.com",Salary=9000,PhoneNumber="691010101",PhotoUrl= "https://dummyimage.com/600x400/000/fff&text=HG" };
+            var t2 = new Trainer() { FirstName = "Billy", LastName = "Takis" ,Email = "billy@gmail.com", Salary = 3000, PhoneNumber = "691010102", PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=BT" };
+            var t3 = new Trainer() { FirstName = "Makis", LastName = "Vader" , Email = "makis@gmail.com", Salary = 2000, PhoneNumber = "691010103", PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=MV" };
+            var t4 = new Trainer() { FirstName = "Mitsos", LastName = "Testoglou", Email = "mitsos@gmail.com", Salary = 7000, PhoneNumber = "691010104", PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=MT" };
+            var t5 = new Trainer() { FirstName = "Trakis", LastName = "Pagkakis", Email = "trakis@gmail.com", Salary = 1005, PhoneNumber = "691010105", PhotoUrl = "https://dummyimage.com/600x400/000/fff&text=TP" };
 
 
             c1.Students = new List<Student>() { s1, s2, s3, s4, s5, s6 };

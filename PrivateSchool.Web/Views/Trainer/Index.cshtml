@@ -1,5 +1,7 @@
-﻿@model IEnumerable<PrivateSchool.Entities.Concrete.Trainer>
-
+﻿@model IPagedList<PrivateSchool.Entities.Concrete.Trainer>
+@using PagedList;
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Trainers";
 }
@@ -7,7 +9,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-ligth" });
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-dark" })
 </p>
 @{
     int count = Model.Count();
@@ -20,45 +22,90 @@
         ViewBag.message = count + " Trainer Found";
     }
 }
+@using (Html.BeginForm("Index", "Trainer", FormMethod.Get))
+{
+
+    @Html.TextBox("firstName", null, new { placeholder = "Search FirstName" })
+    @Html.TextBox("lastName", null, new { placeholder = "Search LastName" })
+    @Html.TextBox("minSalary", null, new { type = "number", placeholder = "Search Min Salary" })
+    @Html.TextBox("maxSalary", null, new { type = "number", placeholder = "Search Max Salary" })
+    string str = ViewBag.CurrentSortOrder;
+    @Html.TextBox("sortOrder", str, new { type = "hidden" })
+
+    <input type="submit" value="Search" />
+}
 <p><em>@ViewBag.message</em></p>
 <table class="table table-borderless table-dark">
     <thead>
         <tr>
-            <td>@Html.DisplayNameFor(x => x.PhotoUrl)</td>
-            <td>@Html.DisplayNameFor(x => x.FirstName)</td>
-            <td>@Html.DisplayNameFor(x => x.LastName)</td>
-            <td>@Html.DisplayNameFor(x => x.Salary)</td>
-            <td>@Html.DisplayNameFor(x => x.PhoneNumber)</td>
-            <td>@Html.DisplayNameFor(x => x.Email)</td>
-            <td>@Html.DisplayNameFor(x=>x.Courses)</td>
+            <td>@Html.DisplayNameFor(x => Model.First().PhotoUrl)</td>
+            <td>
+                @Html.ActionLink("First Name", "Index", "Trainer",
+                new
+                     {
+                    sortOrder = ViewBag.FirstNameSortParam,
+                    firstName = ViewBag.CurrentFirstName,
+                    lastName = ViewBag.CurrentLastName,
+                    minAge = ViewBag.CurrentMinSalary,
+                    maxAge = ViewBag.CurrentMaxSalary
+                }, new { @class = ViewBag.FNView })
+            </td>
+            <td>
+                @Html.ActionLink("Last Name", "Index", "Trainer",
+               new
+                {
+                    sortOrder = ViewBag.LastNameSortParam,
+                    firstName = ViewBag.CurrentFirstName,
+                    lastName = ViewBag.CurrentLastName,
+                    minAge = ViewBag.CurrentMinSalary,
+                    maxAge = ViewBag.CurrentMaxSalary
+                }, new { @class = ViewBag.LNView })
+            </td>
+            <td>
+                @Html.ActionLink("Salary", "Index", "Trainer",
+               new
+                {
+                    sortOrder = ViewBag.AgeSortParam,
+                    firstName = ViewBag.CurrentFirstName,
+                    lastName = ViewBag.CurrentLastName,
+                    minAge = ViewBag.CurrentMinSalary,
+                    maxAge = ViewBag.CurrentMaxSalary
+                 }, new { @class = ViewBag.SView })
+            </td>
+            <td>@Html.DisplayNameFor(x => Model.First().PhoneNumber)</td>
+            <td>@Html.DisplayNameFor(x => Model.First().Email)</td>
+            <td>@Html.DisplayNameFor(x => Model.First().Courses)</td>
             <td>Action</td>
         </tr>
     </thead>
     <tbody>
         @foreach (var trainer in Model)
         {
-        <tr>
-            <td><img src="@trainer.PhotoUrl" /></td>
-            <td>@Html.DisplayFor(x => trainer.FirstName)</td>
-            <td>@Html.DisplayFor(x => trainer.LastName)</td>
-            <td>@Html.DisplayFor(x => trainer.Salary)</td>
-            <td>@Html.DisplayFor(x => trainer.PhoneNumber)</td>
-            <td>@Html.DisplayFor(x => trainer.Email)</td>
-            <td>
-                <ul>
-                    @foreach (var course in trainer.Courses)
-                    {
-                       
-                       <li><ol>@Html.DisplayFor(x => course.Stream)</ol></li>
-                    }
-                </ul>
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = trainer.TrainerId }) |
-                @Html.ActionLink("Details", "Details", new { id = trainer.TrainerId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = trainer.TrainerId })
-            </td>
-        </tr>
+            <tr>
+                <td><img src="@trainer.PhotoUrl" width="150" /></td>
+                <td>@Html.DisplayFor(x => trainer.FirstName)</td>
+                <td>@Html.DisplayFor(x => trainer.LastName)</td>
+                <td>@Html.DisplayFor(x => trainer.Salary)</td>
+                <td>@Html.DisplayFor(x => trainer.PhoneNumber)</td>
+                <td>@Html.DisplayFor(x => trainer.Email)</td>
+                <td>
+                    <ul>
+                        @foreach (var course in trainer.Courses)
+                        {
+
+                            <li><ol>@Html.DisplayFor(x => course.Stream)</ol></li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = trainer.TrainerId }, new { @class = "btn btn-dark" })
+                    @Html.ActionLink("Details", "Details", new { id = trainer.TrainerId }, new { @class = "btn btn-dark" })
+                    @Html.ActionLink("Delete", "Delete", new { id = trainer.TrainerId }, new { @class = "btn btn-dark" })
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, x => @Url.Action("Index", "Trainer", new { page = x, sortOrder = ViewBag.CurrentSortOrder, firstname = ViewBag.CurrentFirstName, lastname = ViewBag.CurrentLastName, minage = ViewBag.CurrentMinSalary, maxage = ViewBag.CurrentMaxSalary }))
+

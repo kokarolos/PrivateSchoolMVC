@@ -22,6 +22,9 @@ namespace PrivateSchool.Entities.Concrete
         [Display(Name = "Ending Date")]
         public DateTime? EndingDate { get; set; }
 
+        [Required(ErrorMessage = "Your Photo is mandatory"), DataType(DataType.ImageUrl)]
+        [Display(Name = "Photo")]
+        public string PhotoUrl { get; set; }
 
         public virtual ICollection<Trainer> Trainers { get; set; }
         public virtual ICollection<Student> Students { get; set; }

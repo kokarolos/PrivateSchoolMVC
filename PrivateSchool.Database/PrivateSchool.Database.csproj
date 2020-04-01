@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202004011209591_Initial.cs" />
+    <Compile Include="Migrations\202004011209591_Initial.designer.cs">
+      <DependentUpon>202004011209591_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="m_Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +68,11 @@
       <Project>{61AD15A6-2BFF-49C7-B902-DC52875A673E}</Project>
       <Name>PrivateSchool.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004011209591_Initial.resx">
+      <DependentUpon>202004011209591_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

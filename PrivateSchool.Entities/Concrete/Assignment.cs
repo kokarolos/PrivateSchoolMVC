@@ -15,6 +15,10 @@ namespace PrivateSchool.Entities.Concrete
         [Display(Name = "Due To")]
         public DateTime SubDate { get; set; }
 
+        [Required(ErrorMessage = "Your Photo is mandatory"), DataType(DataType.ImageUrl)]
+        [Display(Name = "Photo")]
+        public string PhotoUrl { get; set; }
+
 
         public virtual ICollection<Course> Courses { get; set; }
         public virtual ICollection<StudentAssignments> StudentAssignments { get; set; }
