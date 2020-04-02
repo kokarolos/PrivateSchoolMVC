@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Data.Entity;
 using System.Collections.Generic;
-using PrivateSchool.Database;
+using PrivateSchool.DatabaseLatest;
 using PrivateSchool.Entities.Concrete;
 
 namespace PrivateSchool.Services

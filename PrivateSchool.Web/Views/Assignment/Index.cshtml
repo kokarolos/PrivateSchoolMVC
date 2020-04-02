@@ -31,7 +31,7 @@
 
     <input type="submit" value="Search" />
 }
-<p><em>@ViewBag.message</em></p>
+
 <table class="table table-borderless table-dark">
     <thead>
         <tr>
@@ -70,9 +70,9 @@
                 <td>
                     <ul>
                         @foreach (var course in assignment.Courses)
-                        {
+                         {
                             <li><ol>@Html.DisplayFor(x => course.Stream)</ol></li>
-                        }
+                         }
                     </ul>
                 </td>
 
@@ -83,7 +83,7 @@
                 </td>
             </tr>
 
-        }
+         }
     </tbody>
 </table>
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount

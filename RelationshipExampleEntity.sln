@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateSchool.Database", "PrivateSchool.Database\PrivateSchool.Database.csproj", "{F06CF1F5-EFAD-4FAD-B3A0-742361B910D4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateSchool.Entities", "PrivateSchool.Entities\PrivateSchool.Entities.csproj", "{61AD15A6-2BFF-49C7-B902-DC52875A673E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateSchool.Services", "PrivateSchool.Services\PrivateSchool.Services.csproj", "{A4BFA9C2-90A6-4BBF-BF36-4624D1E92285}"
@@ -13,16 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateSchool.Web", "Privat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateSchool.Desktop", "PrivateSchool.Desktop\PrivateSchool.Desktop.csproj", "{BC34C5B3-5FA6-43C1-BE91-1528A831EB7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateSchool.DatabaseLatest", "PrivateSchool.DatabaseLatest\PrivateSchool.DatabaseLatest.csproj", "{DFD93334-3ED5-4A1E-B440-E9F2BF6FEE1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F06CF1F5-EFAD-4FAD-B3A0-742361B910D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F06CF1F5-EFAD-4FAD-B3A0-742361B910D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F06CF1F5-EFAD-4FAD-B3A0-742361B910D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F06CF1F5-EFAD-4FAD-B3A0-742361B910D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61AD15A6-2BFF-49C7-B902-DC52875A673E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61AD15A6-2BFF-49C7-B902-DC52875A673E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61AD15A6-2BFF-49C7-B902-DC52875A673E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{BC34C5B3-5FA6-43C1-BE91-1528A831EB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC34C5B3-5FA6-43C1-BE91-1528A831EB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC34C5B3-5FA6-43C1-BE91-1528A831EB7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD93334-3ED5-4A1E-B440-E9F2BF6FEE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD93334-3ED5-4A1E-B440-E9F2BF6FEE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD93334-3ED5-4A1E-B440-E9F2BF6FEE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD93334-3ED5-4A1E-B440-E9F2BF6FEE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

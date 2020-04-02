@@ -8,12 +8,30 @@ namespace PrivateSchool.Desktop
     {
         static void Main(string[] args)
         {
-           CourseRepository cs = new CourseRepository();
-        //    StudentRepository ss = new StudentRepository();
-        //    AssignmentRepository ass = new AssignmentRepository();
-        //    TrainerRepository ts = new TrainerRepository();
+            CourseRepository cs = new CourseRepository();
+            StudentRepository ss = new StudentRepository();
+            AssignmentRepository ass = new AssignmentRepository();
+            TrainerRepository ts = new TrainerRepository();
+            StudentAssignemnts sa = new StudentAssignemnts();
 
             var courses = cs.GetCourses();
+            var studentsA = sa.GetStudentAssignemnts();
+            var assi = ass.GetAssignments();
+            foreach (var item in assi)
+            {
+                Console.WriteLine(item.Description);
+                foreach (var obj in studentsA)
+                {
+                    if(item.AssignmentId.Equals(obj.AssignmentId))
+                    {
+                        Console.WriteLine(obj.AssignmentMark);
+                    }
+                }
+            }
+
+      
+
+
         //    var trainers = ts.GetTrainers();
         //    var assignments = ass.GetAssignments();
         //    var students = ss.GetStudents();
@@ -32,16 +50,16 @@ namespace PrivateSchool.Desktop
             //}
 
 
-            var types = Enum.GetNames(typeof(Type));
-            foreach (var item in types)
-            {
-                Console.WriteLine(item);
-            }
+            //var types = Enum.GetNames(typeof(Type));
+            //foreach (var item in types)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            foreach (var item in courses)
-            {
-                Console.WriteLine(item.Type.ToString());
-            }
+            //foreach (var item in courses)
+            //{
+            //    Console.WriteLine(item.Type.ToString());
+            //}
         }
     }
 }

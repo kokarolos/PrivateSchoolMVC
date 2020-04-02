@@ -138,6 +138,7 @@
     <Compile Include="Controllers\AssignmentController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TrainerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -544,9 +545,11 @@
     <Content Include="Views\Shared\Components\_NavBar.cshtml" />
     <Content Include="Views\Shared\Components\_Footer.cshtml" />
     <Content Include="Views\Shared\Components\_SideBar.cshtml" />
+    <Content Include="Views\Statistic\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Statistics\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -554,10 +557,6 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PrivateSchool.Database\PrivateSchool.Database.csproj">
-      <Project>{f06cf1f5-efad-4fad-b3a0-742361b910d4}</Project>
-      <Name>PrivateSchool.Database</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PrivateSchool.Entities\PrivateSchool.Entities.csproj">
       <Project>{61ad15a6-2bff-49c7-b902-dc52875a673e}</Project>
       <Name>PrivateSchool.Entities</Name>

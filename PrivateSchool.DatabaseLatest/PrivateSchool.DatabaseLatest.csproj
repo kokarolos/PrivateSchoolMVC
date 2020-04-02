@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{61AD15A6-2BFF-49C7-B902-DC52875A673E}</ProjectGuid>
+    <ProjectGuid>{DFD93334-3ED5-4A1E-B440-E9F2BF6FEE1A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrivateSchool.Entities</RootNamespace>
-    <AssemblyName>PrivateSchool.Entities</AssemblyName>
+    <RootNamespace>PrivateSchool.DatabaseLatest</RootNamespace>
+    <AssemblyName>PrivateSchool.DatabaseLatest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,22 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\Assignment.cs" />
-    <Compile Include="Concrete\Course.cs" />
-    <Compile Include="Concrete\Student.cs" />
-    <Compile Include="Concrete\Trainer.cs" />
-    <Compile Include="Concrete\Type.cs" />
-    <Compile Include="CustomValidation\ValidationMethods.cs" />
-    <Compile Include="Intermediaries\CourseStudents.cs" />
-    <Compile Include="Intermediaries\CourseTrainers.cs" />
-    <Compile Include="Intermediaries\StudentAssignments.cs" />
-    <Compile Include="Intermediaries\StudentCourseAssignemnts.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="m_Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\StatisticsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrivateSchool.Entities\PrivateSchool.Entities.csproj">
+      <Project>{61AD15A6-2BFF-49C7-B902-DC52875A673E}</Project>
+      <Name>PrivateSchool.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

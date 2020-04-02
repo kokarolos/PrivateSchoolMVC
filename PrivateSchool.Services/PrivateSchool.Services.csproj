@@ -55,6 +55,7 @@
     <Compile Include="CourseRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentAssignemnts.cs" />
     <Compile Include="StudentRepository.cs" />
     <Compile Include="TrainerRepository.cs" />
   </ItemGroup>
@@ -63,9 +64,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PrivateSchool.Database\PrivateSchool.Database.csproj">
-      <Project>{f06cf1f5-efad-4fad-b3a0-742361b910d4}</Project>
-      <Name>PrivateSchool.Database</Name>
+    <ProjectReference Include="..\PrivateSchool.DatabaseLatest\PrivateSchool.DatabaseLatest.csproj">
+      <Project>{dfd93334-3ed5-4a1e-b440-e9f2bf6fee1a}</Project>
+      <Name>PrivateSchool.DatabaseLatest</Name>
     </ProjectReference>
     <ProjectReference Include="..\PrivateSchool.Entities\PrivateSchool.Entities.csproj">
       <Project>{61ad15a6-2bff-49c7-b902-dc52875a673e}</Project>

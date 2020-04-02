@@ -61,10 +61,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PrivateSchool.Database\PrivateSchool.Database.csproj">
-      <Project>{F06CF1F5-EFAD-4FAD-B3A0-742361B910D4}</Project>
-      <Name>PrivateSchool.Database</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PrivateSchool.Entities\PrivateSchool.Entities.csproj">
       <Project>{61AD15A6-2BFF-49C7-B902-DC52875A673E}</Project>
       <Name>PrivateSchool.Entities</Name>

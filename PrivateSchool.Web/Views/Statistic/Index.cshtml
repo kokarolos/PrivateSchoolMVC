@@ -1,0 +1,58 @@
+﻿@model PrivateSchool.Entities.ViewModels.StatisticsViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<hr />
+<b>Students Count</b> @Model.StudentsCount
+<hr />
+<b>Trainers Count</b> @Model.TrainersCount
+<hr />
+<b>Courses Count</b> @Model.CoursesCount
+<hr />
+<b>Assignments Count</b> @Model.AssignmentsCount
+<hr />
+
+<b>Courses Stats</b>
+<hr />
+<div class="row">
+    <div class=" col-4">
+        @Html.DisplayName("Students")
+        @foreach (var item in Model.CourseStats)
+        {
+            <ol>
+                <li>
+                    @item.Stream @item.Students.Count
+                </li>
+            </ol>
+        }
+    </div>
+    <div class=" col-4">
+        @Html.DisplayName("Trainers")
+        @foreach (var obj in Model.CourseStats)
+        {
+            <ol>
+                <li>
+                    @obj.Stream @obj.Trainers.Count
+                </li>
+            </ol>
+        }
+    </div>
+    <div class=" col-4">
+        @Html.DisplayName("Assignments")
+        @foreach (var x in Model.CourseStats)
+        {
+            <ol>
+                <li>
+                    @x.Stream @x.Assignments.Count
+                </li>
+            </ol>
+        }
+    </div>
+</div>
+<hr />
+
+

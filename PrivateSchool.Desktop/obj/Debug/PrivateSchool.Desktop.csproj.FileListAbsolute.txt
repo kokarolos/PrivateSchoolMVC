@@ -3,11 +3,8 @@ C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bi
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Desktop.pdb
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\EntityFramework.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Database.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Entities.dll
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Services.dll
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Database.pdb
-C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Database.dll.config
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Entities.pdb
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Entities.dll.config
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.Services.pdb
@@ -18,3 +15,6 @@ C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\ob
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\obj\Debug\PrivateSchool.Desktop.csproj.CopyComplete
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\obj\Debug\PrivateSchool.Desktop.exe
 C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\obj\Debug\PrivateSchool.Desktop.pdb
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.DatabaseLatest.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.DatabaseLatest.pdb
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Desktop\bin\Debug\PrivateSchool.DatabaseLatest.dll.config
