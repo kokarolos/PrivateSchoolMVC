@@ -34,6 +34,7 @@
 <table class="table table-borderless table-dark">
     <thead>
         <tr>
+            <td>@Html.Display("Photo")</td>
             <td>
                 @Html.ActionLink("Stream", "Index", "Course",
                 new
@@ -92,6 +93,7 @@
         @foreach (var course in Model)
         {
             <tr>
+                <td><img src="@course.PhotoUrl" class=" img-fluid" width="150"/></td>
                 <td>@Html.DisplayFor(x => course.Stream)</td>
                 <td>@Html.DisplayFor(x => course.Type)</td>
                 <td>@Html.DisplayFor(x => course.StartingDate)</td>

@@ -1,4 +1,6 @@
-﻿using PrivateSchool.Entities.ViewModels;
+﻿using PrivateSchool.Entities.Concrete;
+using PrivateSchool.Entities.Intermediaries;
+using PrivateSchool.Entities.ViewModels;
 using PrivateSchool.Services;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,7 @@ namespace PrivateSchool.Web.Controllers
         private TrainerRepository trainerRepos = new TrainerRepository();
         private CourseRepository courseRepos = new CourseRepository();
         private AssignmentRepository assignmentRepository = new AssignmentRepository();
+        private StudentAssignmentRepository studentAssignemntsrepos = new StudentAssignmentRepository();
         // GET: Statistic
         public ActionResult Index()
         {
@@ -26,9 +29,10 @@ namespace PrivateSchool.Web.Controllers
             var courses = courseRepos.GetCourses();
             var students = studentRepos.GetStudents();
             var trainers = trainerRepos.GetTrainers();
+            var assigmnets = assignmentRepository.GetAssignments();
+            var studentsAssigments = studentAssignemntsrepos.GetStudentAssignemnts();
 
-            vm.CourseStats = courses.Where(x => x.Students != null && x.Trainers != null && x.Assignments != null );
-
+            vm.CourseStats = courses.Where(x => x.Students != null && x.Trainers != null && x.Assignments != null);
 
             return View(vm);
         }

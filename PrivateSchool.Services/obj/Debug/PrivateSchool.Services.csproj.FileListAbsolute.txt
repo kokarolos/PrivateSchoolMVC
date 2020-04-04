@@ -1,0 +1,17 @@
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.Services.dll.config
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.Services.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.Services.pdb
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\EntityFramework.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.DatabaseLatest.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.Entities.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.DatabaseLatest.pdb
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.DatabaseLatest.dll.config
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.Entities.pdb
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\PrivateSchool.Entities.dll.config
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\EntityFramework.xml
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\obj\Debug\PrivateSchool.Services.csprojAssemblyReference.cache
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\obj\Debug\PrivateSchool.Services.csproj.CopyComplete
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\obj\Debug\PrivateSchool.Services.dll
+C:\Users\Karolos\source\repos\RelationshipExampleEntity\PrivateSchool.Services\obj\Debug\PrivateSchool.Services.pdb

@@ -4,45 +4,53 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create Course</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Course</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Stream, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Stream, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Stream, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    <div class="form-inline">
+        @Html.LabelFor(x => x.Stream)
+        @Html.TextBoxFor(x => x.Stream, new { @placeholder = "Stream", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Stream, "", new { @class = "text-danger" })
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <hr />
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <div class="form-inline">
+        @Html.LabelFor(x => x.Type)
+        @Html.EnumDropDownListFor(x => x.Type, new {@class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+    </div>
+
+    <hr />
+
+    <div class="form-inline">
+        @Html.LabelFor(x => x.PhotoUrl)
+        @Html.TextBoxFor(x => x.PhotoUrl, new { @placeholder = "PhotoUrl", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
+    </div>
+    <hr />
+
+    <div class="form-inline">
+        @Html.LabelFor(x => x.StartingDate)
+        @Html.TextBoxFor(x => x.StartingDate, new { type = "date", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.StartingDate, "", new { @class = "text-danger" })
+    </div>
+    <hr />
+
+    <div class="form-inline">
+        @Html.LabelFor(x => x.EndingDate)
+        @Html.TextBoxFor(x => x.EndingDate, new { type = "date", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EndingDate, "", new { @class = "text-danger" })
+    </div>
+    <hr />
+
+    <div class="form-inline">
+        <input type="submit" value="Create" class="form-control" />
+    </div>
+
 }

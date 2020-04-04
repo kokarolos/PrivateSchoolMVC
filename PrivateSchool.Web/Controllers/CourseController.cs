@@ -6,12 +6,16 @@ using PrivateSchool.Entities.Concrete;
 using PrivateSchool.Services;
 using System;
 using Type = PrivateSchool.Entities.Concrete.Type;
+using System.Collections.Generic;
 
 namespace PrivateSchool.Web.Controllers
 {
     public class CourseController : Controller
     {
         private CourseRepository repos = new CourseRepository();
+        private StudentRepository stRepos = new StudentRepository();
+        private TrainerRepository trRepos = new TrainerRepository();
+        private AssignmentRepository asRepos = new AssignmentRepository();
 
         // GET: Course
         public ActionResult Index(string sortOrder,string stream,string type,string startingDate,string endingDate,int? page,int? userPageSize)
@@ -72,17 +76,12 @@ namespace PrivateSchool.Web.Controllers
             }
             //Stream Filter
             courses = string.IsNullOrWhiteSpace(stream) ? courses : courses.Where(x => x.Stream.ToUpper().Contains(stream.ToUpper()));
-
             //Type Fillter
             courses = string.IsNullOrWhiteSpace(type) ? courses : courses.Where(x => x.Type.ToString().ToUpper().Contains(type.ToUpper()));
             //StartingDate Filter
             courses = string.IsNullOrWhiteSpace(startingDate) ? courses : courses.Where(x => x.StartingDate.ToString().Contains(startingDate));
             //StartingDate Filter
             courses = string.IsNullOrWhiteSpace(startingDate) ? courses : courses.Where(x => x.EndingDate.ToString().Contains(startingDate));
-
-
-
-
 
             var pageSize = userPageSize ?? 3;
             var pageNum = page ?? 1;
@@ -116,14 +115,13 @@ namespace PrivateSchool.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseId,Stream,Type")] Course course)
+        public ActionResult Create([Bind(Include = "CourseId,Stream,Type,StartinDate,EndingDate,PhotoUrl")] Course course)
         {
             if (ModelState.IsValid)
             {
                 repos.Insert(course);
                 return RedirectToAction("Index");
             }
-
             return View(course);
         }
 
@@ -139,6 +137,24 @@ namespace PrivateSchool.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SelectedStudentsIds = stRepos.GetStudents()
+                                          .Select(x => new SelectListItem()
+                                          {
+                                              Value = x.StudentId.ToString(), Text = string.Format("{0} {1}", x.FirstName, x.LastName)
+                                          });
+            ViewBag.SelectedTrainersIds = trRepos.GetTrainers()
+                                          .Select(x => new SelectListItem()
+                                          {
+                                              Value = x.TrainerId.ToString(),
+                                              Text = string.Format("{0} {1}", x.FirstName, x.LastName)
+                                          });
+            ViewBag.SelectedAssignmentsIds = asRepos.GetAssignments()
+                                          .Select(x => new SelectListItem()
+                                          {
+                                              Value = x.AssignmentId.ToString(),
+                                              Text = x.Description
+                                          });
+
             return View(course);
         }
 
@@ -147,11 +163,11 @@ namespace PrivateSchool.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseId,Stream,Type")] Course course)
+        public ActionResult Edit([Bind(Include = "CourseId,Stream,Type,StartinDate,EndingDate,PhotoUrl")] Course course, IEnumerable<int> SelectedStudentsIds, IEnumerable<int> SelectedTrainersIds, IEnumerable<int> SelectedAssignmentsIds)
         {
             if (ModelState.IsValid)
             {
-                repos.Update(course);
+                repos.Update(course,SelectedStudentsIds,SelectedTrainersIds, SelectedAssignmentsIds);
                 return RedirectToAction("Index");
             }
             return View(course);

@@ -55,4 +55,8 @@
 </div>
 <hr />
 
+@foreach (var item in Model.StudentsByAssignments)
+{
+    if (item.Key.Description.Equals(Model.Assignments)) { };
 
+}

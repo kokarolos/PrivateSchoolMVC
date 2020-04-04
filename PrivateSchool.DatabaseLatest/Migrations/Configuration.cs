@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
+    using System.Data.Entity.Validation;
     using PrivateSchool.Entities.Concrete;
     using PrivateSchool.Entities.Intermediaries;
 
@@ -177,39 +178,39 @@
             var sa89 = new StudentAssignments() { Student = s16, Assignment = a1, StudentMark = 83, AssignmentMark = 100, SeedProp = "89" };
             var sa90 = new StudentAssignments() { Student = s16, Assignment = a3, StudentMark = 100, AssignmentMark = 100, SeedProp = "90" };
 
-            //try
-            //{
-            context.Assignments.AddOrUpdate(x => x.PhotoUrl, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12);
-            context.Trainers.AddOrUpdate(x => x.Email, t1, t2, t3, t4, t5);
-            context.Students.AddOrUpdate(x => x.Email, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18);
-            context.Courses.AddOrUpdate(x => x.Stream, c1, c2, c3, c4, c5);
-            context.StudentAssignments.AddOrUpdate(x => x.SeedProp,
-              sa1, sa2, sa3, sa4, sa5, sa6, sa7, sa8, sa9,
-              sa10, sa11, sa12, sa13, sa14, sa15, sa16, sa17, sa18, sa19,
-              sa20, sa21, sa22, sa23, sa24, sa25, sa26, sa27, sa28, sa29,
-              sa30, sa31, sa32, sa33, sa34, sa35, sa36, sa37, sa38, sa39,
-              sa40, sa41, sa42, sa43, sa44, sa45, sa46, sa47, sa48, sa49,
-              sa50, sa51, sa52, sa53, sa54, sa55, sa56, sa57, sa58, sa59,
-              sa60, sa61, sa62, sa63, sa64, sa65, sa66, sa67, sa68, sa69,
-              sa70, sa71, sa72, sa73, sa74, sa75, sa76, sa77, sa78, sa79,
-              sa80, sa81, sa82, sa83, sa84, sa85, sa86, sa87, sa88, sa89,
-              sa90);
-            context.SaveChanges();
-            //}
-            //catch (DbEntityValidationException e)
-            //{
-            //    foreach (var eve in e.EntityValidationErrors)
-            //    {
-            //        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-            //            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-            //        foreach (var ve in eve.ValidationErrors)
-            //        {
-            //            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-            //                ve.PropertyName, ve.ErrorMessage);
-            //        }
-            //    }
-            //    throw;
-            //}
+            try
+            {
+                context.Assignments.AddOrUpdate(x => x.PhotoUrl, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12);
+                context.Trainers.AddOrUpdate(x => x.Email, t1, t2, t3, t4, t5);
+                context.Students.AddOrUpdate(x => x.Email, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18);
+                context.Courses.AddOrUpdate(x => x.Stream, c1, c2, c3, c4, c5);
+                context.StudentAssignments.AddOrUpdate(x => x.SeedProp,
+                  sa1, sa2, sa3, sa4, sa5, sa6, sa7, sa8, sa9,
+                  sa10, sa11, sa12, sa13, sa14, sa15, sa16, sa17, sa18, sa19,
+                  sa20, sa21, sa22, sa23, sa24, sa25, sa26, sa27, sa28, sa29,
+                  sa30, sa31, sa32, sa33, sa34, sa35, sa36, sa37, sa38, sa39,
+                  sa40, sa41, sa42, sa43, sa44, sa45, sa46, sa47, sa48, sa49,
+                  sa50, sa51, sa52, sa53, sa54, sa55, sa56, sa57, sa58, sa59,
+                  sa60, sa61, sa62, sa63, sa64, sa65, sa66, sa67, sa68, sa69,
+                  sa70, sa71, sa72, sa73, sa74, sa75, sa76, sa77, sa78, sa79,
+                  sa80, sa81, sa82, sa83, sa84, sa85, sa86, sa87, sa88, sa89,
+                  sa90);
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
     }
 }
