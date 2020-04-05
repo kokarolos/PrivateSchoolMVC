@@ -1,62 +1,99 @@
 ﻿@model PrivateSchool.Entities.ViewModels.StatisticsViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Statistics";
 }
 
-<h2>Index</h2>
+<h2>Statistics</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <b>Students Count</b> @Model.StudentsCount
+            <hr />
+            <b>Trainers Count</b> @Model.TrainersCount
+            <hr />
+            <b>Courses Count</b> @Model.CoursesCount
+            <hr />
+            <b>Assignments Count</b> @Model.AssignmentsCount
+        </div>
+        <div class="col-8">
+            <b>Courses Stats</b>
+            <hr />
+            <div class="row">
+                <div>
+                    @Html.DisplayName("Students")
+                    <hr />
+                    <ol>
+                        @foreach (var item in Model.CourseStats)
+                        {
+                            <li>
+                                @item.Stream @item.Students.Count
+                            </li>
+                        }
+                    </ol>
+                </div>
+                <div>
+                    @Html.DisplayName("Trainers")
+                    <hr />
 
-<hr />
-<b>Students Count</b> @Model.StudentsCount
-<hr />
-<b>Trainers Count</b> @Model.TrainersCount
-<hr />
-<b>Courses Count</b> @Model.CoursesCount
-<hr />
-<b>Assignments Count</b> @Model.AssignmentsCount
-<hr />
+                    <ol>
+                        @foreach (var obj in Model.CourseStats)
+                        {
+                            <li>
+                                @obj.Stream @obj.Trainers.Count
+                            </li>
+                        }
+                    </ol>
+                </div>
 
-<b>Courses Stats</b>
-<hr />
-<div class="row">
-    <div class=" col-4">
-        @Html.DisplayName("Students")
-        @foreach (var item in Model.CourseStats)
-        {
-            <ol>
-                <li>
-                    @item.Stream @item.Students.Count
-                </li>
-            </ol>
-        }
+                <div>
+                    @Html.DisplayName("Assignments")
+                    <hr />
+                    <ol>
+                        @foreach (var x in Model.CourseStats)
+                        {
+                            <li>
+                                @x.Stream @x.Assignments.Count
+                            </li>
+                        }
+                    </ol>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class=" col-4">
-        @Html.DisplayName("Trainers")
-        @foreach (var obj in Model.CourseStats)
-        {
-            <ol>
-                <li>
-                    @obj.Stream @obj.Trainers.Count
-                </li>
-            </ol>
-        }
+    <div class="row">
+        <div class="col-4">
+            <hr />
+            <b>Assignments %</b>
+            @foreach (var item in Model.StudentsByAssignments)
+            {
+                <li>@item.Key : @string.Format("{0:n2}", item.Value) </li>
+            }
+            <hr />
+        </div>
+        <div class="col-2">
+            <hr />
+            <b>Marks Per Course</b>
+            @foreach (var item in Model.MarksPerCourse)
+            {
+                <li>@item.Key : @string.Format("{0:n2}", item.Value) </li>
+            }
+            <hr />
+        </div>
+        <div class="col-6">
+            <hr />
+            <b>Marks Per Assignemnt Per Course</b>
+            @foreach (var item in Model.MarksPerCoursePerAssignment)
+            {
+                <li>@item.Key : @string.Format("{0:n2}", item.Value) </li>
+            }
+        </div>
     </div>
-    <div class=" col-4">
-        @Html.DisplayName("Assignments")
-        @foreach (var x in Model.CourseStats)
-        {
-            <ol>
-                <li>
-                    @x.Stream @x.Assignments.Count
-                </li>
-            </ol>
-        }
-    </div>
+
+
+
+
+
 </div>
-<hr />
-
-@foreach (var item in Model.StudentsByAssignments)
-{
-    if (item.Key.Description.Equals(Model.Assignments)) { };
-
-}

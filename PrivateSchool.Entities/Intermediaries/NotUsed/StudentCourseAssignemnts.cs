@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PrivateSchool.Entities.Intermediaries
 {
-    public class StudentCourseAssignemnts
+    public class StudentCourseAssignemnts 
     {
         [Key, Column(Order = 1)]
         public int StudentId { get; set; }
@@ -19,6 +19,7 @@ namespace PrivateSchool.Entities.Intermediaries
         public virtual Student Student { get; set; }
         public virtual Course Course { get; set; }
         public virtual Assignment Assignment { get; set; }
+
     }
 }
 

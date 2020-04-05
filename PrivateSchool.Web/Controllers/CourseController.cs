@@ -4,8 +4,6 @@ using System.Web.Mvc;
 using PagedList;
 using PrivateSchool.Entities.Concrete;
 using PrivateSchool.Services;
-using System;
-using Type = PrivateSchool.Entities.Concrete.Type;
 using System.Collections.Generic;
 
 namespace PrivateSchool.Web.Controllers
@@ -110,9 +108,6 @@ namespace PrivateSchool.Web.Controllers
             return View();
         }
 
-        // POST: Course/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CourseId,Stream,Type,StartinDate,EndingDate,PhotoUrl")] Course course)
@@ -158,9 +153,6 @@ namespace PrivateSchool.Web.Controllers
             return View(course);
         }
 
-        // POST: Course/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CourseId,Stream,Type,StartinDate,EndingDate,PhotoUrl")] Course course, IEnumerable<int> SelectedStudentsIds, IEnumerable<int> SelectedTrainersIds, IEnumerable<int> SelectedAssignmentsIds)

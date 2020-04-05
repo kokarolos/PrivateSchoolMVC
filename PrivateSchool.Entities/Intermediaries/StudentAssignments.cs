@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PrivateSchool.Entities.Intermediaries
 {
-    public class StudentAssignments
+    public class StudentAssignments 
     {
 
         [Key, Column(Order = 1)]
@@ -21,6 +21,7 @@ namespace PrivateSchool.Entities.Intermediaries
         
         public string SeedProp { get; set; }
         public int AssignmentMark { get; set; }
+
 
     }
 }

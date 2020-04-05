@@ -19,9 +19,28 @@ namespace PrivateSchool.Services
             db.SaveChanges();
         }
 
-        public void Update(object entity)
+        public void Update(object entity,IEnumerable<int> selectedCoursesId)
         {
             var trainer = entity as Trainer;
+            db.Trainers.Attach(trainer);
+            db.Entry(trainer).Collection("Courses").Load();
+            trainer.Courses.Clear();
+            db.SaveChanges();
+
+            if(!(selectedCoursesId is null))
+            {
+                foreach (var id in selectedCoursesId)
+                {
+                    var course = db.Courses.Find(id);
+                    if(course != null)
+                    {
+                        trainer.Courses.Add(course);
+                    }
+                }
+                db.SaveChanges();
+            }
+
+
             db.Entry(trainer).State = EntityState.Modified;
             db.SaveChanges();
         }

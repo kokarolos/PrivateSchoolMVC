@@ -1,0 +1,58 @@
+﻿@model PrivateSchool.Entities.Intermediaries.StudentAssignments
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentAssignments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Assignment.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assignment.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeedProp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeedProp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignmentMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignmentMark)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

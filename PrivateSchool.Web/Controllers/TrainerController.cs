@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using PagedList;
@@ -10,6 +12,7 @@ namespace PrivateSchool.Web.Controllers
     public class TrainerController : Controller
     {
         private TrainerRepository repos = new TrainerRepository();
+        private CourseRepository courseRepos = new CourseRepository();
 
         // GET: Trainer
         public ActionResult Index(string sortOrder, string firstName,string lastName,int? minSalary,int? maxSalary,int? page,int? userPageSize)
@@ -121,6 +124,13 @@ namespace PrivateSchool.Web.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.SelectedCoursesId = courseRepos.GetCourses()
+                                                         .Select(x => new SelectListItem()
+                                                          {
+                                                             Value=x.CourseId.ToString(),
+                                                             Text = x.Stream
+                                                           });
             return View(trainer);
         }
 
@@ -129,11 +139,11 @@ namespace PrivateSchool.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TrainerId,FirstName,LastName,Salary,PhoneNumber,Email,PhotoUrl")] Trainer trainer)
+        public ActionResult Edit([Bind(Include = "TrainerId,FirstName,LastName,Salary,PhoneNumber,Email,PhotoUrl")] Trainer trainer,IEnumerable<int> SelectedCoursesId)
         {
             if (ModelState.IsValid)
             {
-                repos.Update(trainer);
+                repos.Update(trainer,SelectedCoursesId);
                 return RedirectToAction("Index");
             }
             return View(trainer);

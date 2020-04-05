@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using PagedList;
@@ -10,6 +11,7 @@ namespace PrivateSchool.Web.Controllers
     public class AssignmentController : Controller
     {
         private AssignmentRepository repos = new AssignmentRepository();
+        private CourseRepository courseRepos = new CourseRepository();
 
         // GET: Assignment
         public ActionResult Index(string sortOrder,string desc,string subDate,int? page,int? userPageSize)
@@ -79,12 +81,9 @@ namespace PrivateSchool.Web.Controllers
             return View();
         }
 
-        // POST: Assignment/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AssignmentId,Description")] Assignment assignment)
+        public ActionResult Create([Bind(Include = "AssignmentId,Description,PhotoUrl,SubDate")] Assignment assignment)
         {
             if (ModelState.IsValid)
             {
@@ -107,19 +106,24 @@ namespace PrivateSchool.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SelectedCoursesId = courseRepos
+                                           .GetCourses()
+                                           .Select(x =>
+                                           new SelectListItem()
+                                           {
+                                                Value = x.CourseId.ToString(),
+                                                Text = x.Stream
+                                           });
             return View(assignment);
         }
 
-        // POST: Assignment/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AssignmentId,Description")] Assignment assignment)
+        public ActionResult Edit([Bind(Include = "AssignmentId,Description,PhotoUrl,SubDate")] Assignment assignment,IEnumerable<int> SelectedCoursesId)
         {
             if (ModelState.IsValid)
             {
-                repos.Update(assignment);
+                repos.Update(assignment,SelectedCoursesId);
                 return RedirectToAction("Index");
             }
             return View(assignment);

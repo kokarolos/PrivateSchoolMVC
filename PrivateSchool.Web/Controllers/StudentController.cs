@@ -1,11 +1,9 @@
 ﻿using System.Linq;
-using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
 using PrivateSchool.Entities.Concrete;
 using PrivateSchool.Services;
 using PagedList;
-using PagedList.Mvc;
 
 namespace PrivateSchool.Web.Controllers
 {

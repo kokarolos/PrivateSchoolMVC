@@ -30,7 +30,7 @@ body {
 	font-family: "Helvetica Neue",sans-serif;
 	font-weight: lighter;
 	background-color: #343a40;
-	color:lightslategray;
+	color:white;
 }
 
 header {
@@ -62,7 +62,7 @@ header {
 }
 
 nav {
-	position: absolute;
+	position: sticky;
 	width: 100%;
 	line-height: 60px;
 	font-size: 5px;

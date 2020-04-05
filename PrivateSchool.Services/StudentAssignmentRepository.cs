@@ -11,6 +11,6 @@ namespace PrivateSchool.Services
     public class StudentAssignmentRepository
     {
         private m_Database db = new m_Database();
-        public IEnumerable<StudentAssignments> GetStudentAssignemnts() => db.StudentAssignments.ToList();
+        public IEnumerable<StudentAssignments> GetStudentAssignments() => db.StudentAssignments.ToList();
     }
 }

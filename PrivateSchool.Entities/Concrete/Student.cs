@@ -7,7 +7,7 @@ using PrivateSchool.Entities.Intermediaries;
 
 namespace PrivateSchool.Entities.Concrete
 {
-    public class Student
+    public class Student 
     {
         public int StudentId { get; set; }
 

@@ -546,6 +546,11 @@
     <Content Include="Views\Shared\Components\_Footer.cshtml" />
     <Content Include="Views\Shared\Components\_SideBar.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
+    <Content Include="Views\StudentAssignments\Create.cshtml" />
+    <Content Include="Views\StudentAssignments\Delete.cshtml" />
+    <Content Include="Views\StudentAssignments\Details.cshtml" />
+    <Content Include="Views\StudentAssignments\Edit.cshtml" />
+    <Content Include="Views\StudentAssignments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -557,6 +562,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PrivateSchool.DatabaseLatest\PrivateSchool.DatabaseLatest.csproj">
+      <Project>{dfd93334-3ed5-4a1e-b440-e9f2bf6fee1a}</Project>
+      <Name>PrivateSchool.DatabaseLatest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrivateSchool.Entities\PrivateSchool.Entities.csproj">
       <Project>{61ad15a6-2bff-49c7-b902-dc52875a673e}</Project>
       <Name>PrivateSchool.Entities</Name>

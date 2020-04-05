@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - IPrivateSchool</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -14,16 +14,9 @@
                 @RenderPage("Components/_NavBar.cshtml")
             </div>
         </div>
-<div class="container">
-        @*Main*@
-            <div class="row">
-                <div class="col-sm-2">
-                    @RenderPage("Components/_SideBar.cshtml")
-                </div>
-                <div class="col-12">
-                    @RenderBody()
-                </div>
-            </div>
+<div class="container-fluid">
+                     @*Main*@
+            @RenderBody()
             <div>
                 @RenderPage("Components/_Footer.cshtml")
             </div>

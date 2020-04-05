@@ -8,9 +8,8 @@
 
 <h2>Students</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-dark" })
-</p>
+
+
 @{
     SelectListItem s1 = new SelectListItem() { Text = "1", Value = "1" };
     SelectListItem s2 = new SelectListItem() { Text = "2", Value = "2" };
@@ -21,21 +20,22 @@
 }
 
 <div class="row">
-    <div class="col-2">
+    <div class="col-3">
         @using (Html.BeginForm("Index", "Student", FormMethod.Get))
         {
 
-            @Html.TextBox("firstName", null, new { placeholder = "Search FirstName" })
-            @Html.TextBox("lastName", null, new { placeholder = "Search LastName" })
-            @Html.TextBox("minAge", null, new { type = "number", placeholder = "Search Min Age" })
-            @Html.TextBox("maxAge", null, new { type = "number", placeholder = "Search Max Age" })
+            @Html.TextBox("firstName", null, new { placeholder = "Search FirstName" ,@class = "form-control"})
+            @Html.TextBox("lastName", null, new { placeholder = "Search LastName",@class = "form-control" })
+            @Html.TextBox("minAge", null, new { type = "number", placeholder = "Search Min Age",@class = "form-control" })
+            @Html.TextBox("maxAge", null, new { type = "number", placeholder = "Search Max Age",@class = "form-control" })
             string str = ViewBag.CurrentSortOrder;
             @Html.TextBox("sortOrder", str, new { type = "hidden" })
             @Html.DropDownList("userPageSize", items)
-            <input type="submit" value="Search" />
+            <input type="submit" value="Search" class="btn btn-dark" />
         }
     </div>
-    <div class="col-10">
+    <div class="col-9">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-light" })
         <table class="table table-dark ">
             <thead>
                 <tr>
@@ -84,7 +84,7 @@
                 @foreach (var student in Model)
                 {
                     <tr>
-                        <td><img src="@student.PhotoUrl" class="img-fluid" width="150" /></td>
+                        <td><img src="@student.PhotoUrl" class="img-fluid" width="100" /></td>
                         <td>@Html.DisplayFor(x => student.FirstName)</td>
                         <td>@Html.DisplayFor(x => student.LastName)</td>
                         <td>@Html.DisplayFor(x => student.Age)</td>
@@ -111,6 +111,8 @@
                 }
             </tbody>
         </table>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, x => @Url.Action("Index", "Student", new { page = x, sortOrder = ViewBag.CurrentSortOrder, firstname = ViewBag.CurrentFirstName, lastname = ViewBag.CurrentLastName, minage = ViewBag.CurrentMinAge, maxage = ViewBag.CurrentMaxAge, userPageSize = ViewBag.PageSize }))
     </div>
 
 </div>
@@ -118,6 +120,4 @@
 
 
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount 
-@Html.PagedListPager(Model, x => @Url.Action("Index", "Student", new { page = x, sortOrder = ViewBag.CurrentSortOrder, firstname = ViewBag.CurrentFirstName, lastname = ViewBag.CurrentLastName, minage = ViewBag.CurrentMinAge, maxage = ViewBag.CurrentMaxAge, userPageSize = ViewBag.PageSize }))
 

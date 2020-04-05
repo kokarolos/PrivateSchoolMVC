@@ -57,10 +57,10 @@
     <Compile Include="Concrete\Trainer.cs" />
     <Compile Include="Concrete\Type.cs" />
     <Compile Include="CustomValidation\ValidationMethods.cs" />
-    <Compile Include="Intermediaries\CourseStudents.cs" />
-    <Compile Include="Intermediaries\CourseTrainers.cs" />
+    <Compile Include="Intermediaries\NotUsed\CourseStudents.cs" />
+    <Compile Include="Intermediaries\NotUsed\CourseTrainers.cs" />
     <Compile Include="Intermediaries\StudentAssignments.cs" />
-    <Compile Include="Intermediaries\StudentCourseAssignemnts.cs" />
+    <Compile Include="Intermediaries\NotUsed\StudentCourseAssignemnts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\StatisticsViewModel.cs" />
   </ItemGroup>

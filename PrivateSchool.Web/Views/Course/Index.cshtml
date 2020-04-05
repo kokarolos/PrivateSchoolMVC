@@ -7,7 +7,6 @@
     ViewBag.Title = "Index";
 }
 
-@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-light" })
 
 @{
     SelectListItem s1 = new SelectListItem() { Text = "1", Value = "1" };
@@ -17,128 +16,136 @@
 
     var items = new List<SelectListItem>() { s1, s2, s3, s4 };
 }
-
-@using (Html.BeginForm("Index", "Course", FormMethod.Get))
-{
-
-    @Html.TextBox("stream", null, new { placeholder = "Search Stream" })
-    @Html.TextBox("type", null, new { placeholder = "Search Type" })
-    @Html.TextBox("startingDate", null, new { type = "date", placeholder = "Search Starting Date" })
-    @Html.TextBox("endingDate", null, new { type = "date", placeholder = "Search Ending Date" })
-    string str = ViewBag.CurrentSortOrder;
-    @Html.TextBox("sortOrder", str, new { type = "hidden" })
-    @Html.DropDownList("userPageSize", items)
-
-    <input type="submit" value="Search" />
-}
-<table class="table table-borderless table-dark">
-    <thead>
-        <tr>
-            <td>@Html.Display("Photo")</td>
-            <td>
-                @Html.ActionLink("Stream", "Index", "Course",
-                new
-                {
-                    sortOrder = ViewBag.StreamSortParam,
-                    stream = ViewBag.CurrentStream,
-                    type = ViewBag.CurrentType,
-                    startingDate = ViewBag.CurrentStratingDate,
-                    endingDate = ViewBag.CurrentEndingDate,
-                    userPageSize = ViewBag.PageSize
-                }, new { @class = ViewBag.SView })
-            </td>
-            <td>
-                @Html.ActionLink("Type", "Index", "Course",
-                new
-                {
-                    sortOrder = ViewBag.TypeSortParam,
-                    stream = ViewBag.CurrentStream,
-                    type = ViewBag.CurrentType,
-                    startingDate = ViewBag.CurrentStratingDate,
-                    endingDate = ViewBag.CurrentEndingDate,
-                    userPageSize = ViewBag.PageSize
-                }, new { @class = ViewBag.TView })
-            </td>
-            <td>
-                @Html.ActionLink("Starting Date", "Index", "Course",
-                new
-                {
-                    sortOrder = ViewBag.StartingDateSortParam,
-                    stream = ViewBag.CurrentStream,
-                    type = ViewBag.CurrentType,
-                    startingDate = ViewBag.CurrentStratingDate,
-                    endingDate = ViewBag.CurrentEndingDate,
-                    userPageSize = ViewBag.PageSize
-                }, new { @class = ViewBag.SDView })
-            </td>
-            <td>
-                @Html.ActionLink("Ending Date", "Index", "Course",
-                new
-                {
-                    sortOrder = ViewBag.EndingDateSortParam,
-                    stream = ViewBag.CurrentStream,
-                    type = ViewBag.CurrentType,
-                    startingDate = ViewBag.CurrentStratingDate,
-                    endingDate = ViewBag.CurrentEndingDate,
-                    userPageSize = ViewBag.PageSize
-                }, new { @class = ViewBag.EDView })
-            </td>
-            <td>@Html.DisplayName("Students")</td>
-            <td>@Html.DisplayName("Trainers")</td>
-            <td>@Html.DisplayName("Assignments")</td>
-            <td>Action</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var course in Model)
+<div class="row">
+    <div class="col-3">
+        @using (Html.BeginForm("Index", "Course", FormMethod.Get))
         {
-            <tr>
-                <td><img src="@course.PhotoUrl" class=" img-fluid" width="150"/></td>
-                <td>@Html.DisplayFor(x => course.Stream)</td>
-                <td>@Html.DisplayFor(x => course.Type)</td>
-                <td>@Html.DisplayFor(x => course.StartingDate)</td>
-                <td>@Html.DisplayFor(x => course.EndingDate)</td>
-                <td>
-                    <ul>
-                        @foreach (var student in course.Students)
-                        {
-                            <li>@Html.DisplayFor(x => student.FirstName)</li>
-                        }
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        @foreach (var trainer in course.Trainers)
-                        {
-                            <li>@Html.DisplayFor(x => trainer.FirstName)</li>
-                        }
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        @foreach (var assignment in course.Assignments)
-                        {
-                            <li>@Html.DisplayFor(x => assignment.Description)</li>
-                        }
-                    </ul>
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = course.CourseId }, new { @class = "btn btn-light" })
-                    @Html.ActionLink("Details", "Details", new { id = course.CourseId }, new { @class = "btn btn-light" })
-                    @Html.ActionLink("Delete", "Delete", new { id = course.CourseId }, new { @class = "btn btn-light" })
-                </td>
-            </tr>
+
+            @Html.TextBox("stream", null, new { placeholder = "Search Stream",@class = "form-control"  })
+            @Html.TextBox("type", null, new { placeholder = "Search Type",@class = "form-control" })
+            @Html.TextBox("startingDate", null, new { type = "date", placeholder = "Search Starting Date",@class = "form-control" })
+            @Html.TextBox("endingDate", null, new { type = "date", placeholder = "Search Ending Date",@class = "form-control" })
+            string str = ViewBag.CurrentSortOrder;
+            @Html.TextBox("sortOrder", str, new { type = "hidden" })
+            @Html.DropDownList("userPageSize", items)
+
+            <input type="submit" value="Search" class="btn btn-dark" />
         }
-    </tbody>
-</table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, x => @Url.Action("Index", "Course", new
-{
-    page = x,
-    sortOrder = ViewBag.CurrentSortOrder,
-    stream = ViewBag.CurrentStream,
-    type = ViewBag.CurrentType,
-    startingDate = ViewBag.CurrentStratingDate,
-    endingDate = ViewBag.CurrentEndingDate,
-    userPageSize = ViewBag.PageSize
-}))
+    </div>
+    <div class="col-9">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-light" })
+        <table class="table table-borderless table-dark">
+            <thead>
+                <tr>
+                    <td>@Html.DisplayName("Photo")</td>
+                    <td>
+                        @Html.ActionLink("Stream", "Index", "Course",
+                        new
+                        {
+                            sortOrder = ViewBag.StreamSortParam,
+                            stream = ViewBag.CurrentStream,
+                            type = ViewBag.CurrentType,
+                            startingDate = ViewBag.CurrentStratingDate,
+                            endingDate = ViewBag.CurrentEndingDate,
+                            userPageSize = ViewBag.PageSize
+                        }, new { @class = ViewBag.SView })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Type", "Index", "Course",
+                        new
+                        {
+                            sortOrder = ViewBag.TypeSortParam,
+                            stream = ViewBag.CurrentStream,
+                            type = ViewBag.CurrentType,
+                            startingDate = ViewBag.CurrentStratingDate,
+                            endingDate = ViewBag.CurrentEndingDate,
+                            userPageSize = ViewBag.PageSize
+                        }, new { @class = ViewBag.TView })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Starting Date", "Index", "Course",
+                        new
+                        {
+                            sortOrder = ViewBag.StartingDateSortParam,
+                            stream = ViewBag.CurrentStream,
+                            type = ViewBag.CurrentType,
+                            startingDate = ViewBag.CurrentStratingDate,
+                            endingDate = ViewBag.CurrentEndingDate,
+                            userPageSize = ViewBag.PageSize
+                        }, new { @class = ViewBag.SDView })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Ending Date", "Index", "Course",
+                        new
+                        {
+                            sortOrder = ViewBag.EndingDateSortParam,
+                            stream = ViewBag.CurrentStream,
+                            type = ViewBag.CurrentType,
+                            startingDate = ViewBag.CurrentStratingDate,
+                            endingDate = ViewBag.CurrentEndingDate,
+                            userPageSize = ViewBag.PageSize
+                        }, new { @class = ViewBag.EDView })
+                    </td>
+                    <td>@Html.DisplayName("Students")</td>
+                    <td>@Html.DisplayName("Trainers")</td>
+                    <td>@Html.DisplayName("Assignments")</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <td><img src="@course.PhotoUrl" class=" img-fluid" width="150" /></td>
+                        <td>@Html.DisplayFor(x => course.Stream)</td>
+                        <td>@Html.DisplayFor(x => course.Type)</td>
+                        <td>@Html.DisplayFor(x => course.StartingDate)</td>
+                        <td>@Html.DisplayFor(x => course.EndingDate)</td>
+                        <td>
+                            <ul>
+                                @foreach (var student in course.Students)
+                                {
+                                    <li>@Html.DisplayFor(x => student.FirstName)</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                @foreach (var trainer in course.Trainers)
+                                {
+                                    <li>@Html.DisplayFor(x => trainer.FirstName)</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                @foreach (var assignment in course.Assignments)
+                                {
+                                    <li>@Html.DisplayFor(x => assignment.Description)</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = course.CourseId }, new { @class = "btn btn-dark" })
+                            @Html.ActionLink("Details", "Details", new { id = course.CourseId }, new { @class = "btn btn-dark" })
+                            @Html.ActionLink("Delete", "Delete", new { id = course.CourseId }, new { @class = "btn btn-dark" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, x => @Url.Action("Index", "Course", new
+        {
+            page = x,
+            sortOrder = ViewBag.CurrentSortOrder,
+            stream = ViewBag.CurrentStream,
+            type = ViewBag.CurrentType,
+            startingDate = ViewBag.CurrentStratingDate,
+            endingDate = ViewBag.CurrentEndingDate,
+            userPageSize = ViewBag.PageSize
+        }))
+
+    </div>
+</div>
+

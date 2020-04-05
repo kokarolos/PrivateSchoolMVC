@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PrivateSchool.Entities.Intermediaries.StudentAssignments>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>StudentMarks - Assignments</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Assignment.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentMark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeedProp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignmentMark)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assignment.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentMark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeedProp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignmentMark)
+        </td>
+    </tr>
+}
+
+</table>

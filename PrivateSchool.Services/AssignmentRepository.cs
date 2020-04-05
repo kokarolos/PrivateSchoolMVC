@@ -19,11 +19,27 @@ namespace PrivateSchool.Services
             db.SaveChanges();
         }
 
-        public void Update(object entity)
+        public void Update(object entity, IEnumerable<int> selectedCoursesId)
         {
             var assignment = entity as Assignment;
-            db.Entry(assignment).State = EntityState.Modified;
+
+            db.Assignments.Attach(assignment);
+            db.Entry(assignment).Collection("Courses").Load();
+            assignment.Courses.Clear();
             db.SaveChanges();
+
+            if (!(selectedCoursesId is null))
+            {
+                foreach (var id in selectedCoursesId)
+                {
+                    var course = db.Courses.Find(id);
+                    if (course != null)
+                    {
+                        assignment.Courses.Add(course);
+                    }
+                }
+                db.SaveChanges();
+            }
         }
 
         public void Delete(object entity)

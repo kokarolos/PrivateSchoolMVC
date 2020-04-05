@@ -8,9 +8,6 @@
 
 <h2>Assignments</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-ligth" })
-</p>
 
 @{
     SelectListItem s1 = new SelectListItem() { Text = "1", Value = "1" };
@@ -20,76 +17,87 @@
 
     var items = new List<SelectListItem>() { s1, s2, s3, s4 };
 }
-@using (Html.BeginForm("Index", "Assignment", FormMethod.Get))
-{
+<div class="row">
+    <div class="col-3">
 
-    @Html.TextBox("desc", null, new { placeholder = "Search Description" })
-    @Html.TextBox("subDate", null, new { placeholder = "Search SubDate",type="date" })
-    string str = ViewBag.CurrentSortOrder;
-    @Html.TextBox("sortOrder", str, new { type = "hidden" })
-    @Html.DropDownList("userPageSize", items)
-
-    <input type="submit" value="Search" />
-}
-
-<table class="table table-borderless table-dark">
-    <thead>
-        <tr>
-            <td>@Html.DisplayNameFor(x => x.First().PhotoUrl)</td>
-            <td>
-                @Html.ActionLink("Description", "Index", "Assignment",
-                new
-                {
-                    sortOrder = ViewBag.DescSortParam,
-                    desc = ViewBag.CurrentDesc,
-                    subDate = ViewBag.CurrentSubDate,
-                    userPageSize = ViewBag.PageSize
-                }, new { @class = ViewBag.DView })
-            </td>
-            <td>
-                @Html.ActionLink("Due To", "Index", "Assignment",
-                new
-                {
-                    sortOrder = ViewBag.SubDateSortParam,
-                    desc = ViewBag.CurrentDesc,
-                    subDate = ViewBag.CurrentSubDate,
-                    userPageSize = ViewBag.PageSize
-                }, new { @class = ViewBag.SView })
-            </td>
-            <td>@Html.DisplayName("Courses")</td>
-            <td>Action</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var assignment in Model)
+        @using (Html.BeginForm("Index", "Assignment", FormMethod.Get))
         {
-            <tr>
-                <td><img src="@assignment.PhotoUrl" width="150" /></td>
-                <td>@Html.DisplayFor(x => assignment.Description)</td>
-                <td>@Html.DisplayFor(x => assignment.SubDate)</td>
-                <td>
-                    <ul>
-                        @foreach (var course in assignment.Courses)
-                         {
-                            <li><ol>@Html.DisplayFor(x => course.Stream)</ol></li>
-                         }
-                    </ul>
-                </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = assignment.AssignmentId }, new { @class = "btn btn-light" }) |
-                    @Html.ActionLink("Details", "Details", new { id = assignment.AssignmentId }, new { @class = "btn btn-light" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = assignment.AssignmentId }, new { @class = "btn btn-light" })
-                </td>
-            </tr>
+            @Html.TextBox("desc", null, new { placeholder = "Search Description" ,@class = "form-control" })
+            @Html.TextBox("subDate", null, new { placeholder = "Search SubDate", type = "date" ,@class = "form-control" })
+            string str = ViewBag.CurrentSortOrder;
+            @Html.TextBox("sortOrder", str, new { type = "hidden" })
+            @Html.DropDownList("userPageSize", items)
 
-         }
-    </tbody>
-</table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, x => @Url.Action("Index", "Assignment", new { page = x, 
-    sortOrder = ViewBag.SubDateSortParam,
-    desc = ViewBag.CurrentDesc,
-    subDate = ViewBag.CurrentSubDate,
-    userPageSize = ViewBag.PageSize }))
+            <input type="submit" value="Search" class="btn btn-dark" />
+        }
+    </div>
+    <div class="col-9">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-light" })
+        <table class="table table-borderless table-dark">
+            <thead>
+                <tr>
+                    <td>@Html.DisplayNameFor(x => x.First().PhotoUrl)</td>
+                    <td>
+                        @Html.ActionLink("Description", "Index", "Assignment",
+                        new
+                        {
+                            sortOrder = ViewBag.DescSortParam,
+                            desc = ViewBag.CurrentDesc,
+                            subDate = ViewBag.CurrentSubDate,
+                            userPageSize = ViewBag.PageSize
+                        }, new { @class = ViewBag.DView })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Due To", "Index", "Assignment",
+                        new
+                        {
+                            sortOrder = ViewBag.SubDateSortParam,
+                            desc = ViewBag.CurrentDesc,
+                            subDate = ViewBag.CurrentSubDate,
+                            userPageSize = ViewBag.PageSize
+                        }, new { @class = ViewBag.SView })
+                    </td>
+                    <td>@Html.DisplayName("Courses")</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var assignment in Model)
+                {
+                    <tr>
+                        <td><img src="@assignment.PhotoUrl" width="150" /></td>
+                        <td>@Html.DisplayFor(x => assignment.Description)</td>
+                        <td>@Html.DisplayFor(x => assignment.SubDate)</td>
+                        <td>
+                            <ul>
+                                @foreach (var course in assignment.Courses)
+                                {
+                                    <li><ol>@Html.DisplayFor(x => course.Stream)</ol></li>
+                                }
+                            </ul>
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = assignment.AssignmentId }, new { @class = "btn btn-dark" }) |
+                            @Html.ActionLink("Details", "Details", new { id = assignment.AssignmentId }, new { @class = "btn btn-dark" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = assignment.AssignmentId }, new { @class = "btn btn-dark" })
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, x => @Url.Action("Index", "Assignment", new
+        {
+            page = x,
+            sortOrder = ViewBag.SubDateSortParam,
+            desc = ViewBag.CurrentDesc,
+            subDate = ViewBag.CurrentSubDate,
+            userPageSize = ViewBag.PageSize
+        }))
+
+    </div>
+</div>
 
